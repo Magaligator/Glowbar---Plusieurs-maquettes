@@ -7,17 +7,13 @@
 <title>Glowbar — Versions du site</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wghtv0,9..144,340;1,9..144,340&family=Inter:wghtv300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;1,9..144,340&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FBF5F0; --card:#FFFFFF; --ink:#241C1A; --oxblood:#4A211C; --taupe:#7E6D6A;
     --mauve:#C7ACA6; --pink:#E895BB; --blush:#FBE3EA;
   }
-  :root:not([data-theme="light"]){}
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){ --bg:#1E1615; --card:#2A201E; --ink:#F5ECE8; --oxblood:#F5ECE8; --taupe:#BBA9A5; --mauve:#4A3A37; --blush:#3A2A2E; }
-  }
-  *{box-sizing:border-box}
+    *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
   header{padding:56px 0 36px;text-align:center}
@@ -63,7 +59,7 @@
 </head>
 <body>
 <header class="wrap">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="3-rituel/assets/logo-glowbar-light.png"><img src="3-rituel/assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></picture>
+  <picture><img src="3-rituel/assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></picture>
   <h1>Les quatre versions du <em>site</em></h1>
   <p>Cliquez sur une version pour l’ouvrir. Chaque version a sa page d’accueil et sa boutique.</p>
 </header>
