@@ -41,6 +41,7 @@
   function sceneState(){
     var y = window.scrollY, cy = window.innerHeight / 2;
     if (nav) nav.classList.toggle('hide', y > lastY && y > 400 && !body.classList.contains('menu-open'));
+    if (nav) nav.classList.toggle('solid', y > 40);
     lastY = y;
     for (var i = 0; i < secs.length; i++) {
       var r = secs[i].getBoundingClientRect();
