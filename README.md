@@ -4,10 +4,10 @@ Une page unique (`index.html`) donne accès aux quatre versions du site, chacune
 
 | Version | Dossier | Description |
 |---|---|---|
-| 1 | `v1/` | « Perle » — récit au scroll autour d'une perle 3D (WebGL), menu plein écran, points cliquables sur les produits |
-| 2 | `v2/` | « An atelier for your face » — direction chic, palette brun et rose |
-| 3 | `v3/` | « Le rituel en mouvement » — chiffres clés, visite du studio, sphères flottantes et apparitions au défilement |
-| 4 | `v4/` | Blanc épuré, boutons roses, rappels de brun, slider avant-gardiste, défilement fluide |
+| 1 | `1-perle/` | « Perle » — récit au scroll autour d'une perle 3D (WebGL), menu plein écran, points cliquables sur les produits |
+| 2 | `2-atelier/` | « An atelier for your face » — direction chic, palette brun et rose |
+| 3 | `3-rituel/` | « Le rituel en mouvement » — chiffres clés, visite du studio, sphères flottantes et apparitions au défilement |
+| 4 | `4-blanc/` | Blanc épuré, boutons roses, rappels de brun, slider avant-gardiste, défilement fluide |
 
 Chaque dossier est un site statique autonome : HTML, CSS et JavaScript, sans étape de build.
 
@@ -35,7 +35,7 @@ Tous les liens sont relatifs : le site fonctionne dans un sous-dossier, comme su
 - **Confidentialité** : GitHub Pages est public (sauf avec un compte qui permet les pages privées). Les maquettes sont couvertes par l'accord de confidentialité avec Glowbar. Les pages contiennent `noindex`, ce qui les masque des moteurs de recherche, mais quiconque connaît l'adresse peut les ouvrir.
 - **Polices** : elles viennent de Google Fonts et demandent une connexion internet.
 - **Formulaires** : le contact et la newsletter n'envoient rien pour l'instant, ils affichent seulement une confirmation.
-- **Défilement fluide** : `v3/assets/lenis.min.js` et `v4/assets/lenis.min.js` sont la bibliothèque Lenis (licence MIT).
+- **Défilement fluide** : `3-rituel/assets/lenis.min.js` et `4-blanc/assets/lenis.min.js` sont la bibliothèque Lenis (licence MIT).
 
 ## Ouvrir en local
 
