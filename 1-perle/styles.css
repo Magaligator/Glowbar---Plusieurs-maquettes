@@ -51,6 +51,7 @@ body{ overflow-x:clip; }
 .anchor{ position:absolute; width:0; height:0; pointer-events:none; }
 .a-hero{ left:81%; top:50%; }
 /* final section : the pearl only rises under the content, so the text stays readable */
+.a-proof{ left:96%; top:62%; }
 .a-final{ left:50%; top:calc(100% + 22vmin); }
 .no-gl .anchor::after{ content:""; position:absolute; width:calc(var(--r,12) * 2vmin); aspect-ratio:1; left:calc(var(--r,12) * -1vmin); top:calc(var(--r,12) * -1vmin);
   border-radius:50%; background:radial-gradient(circle at 32% 28%,#fff,var(--pink-soft) 25%,var(--pink) 70%,var(--pink-deep) 130%); opacity:.8; }
@@ -224,10 +225,10 @@ body[data-theme="dark"] .brand .logo-light, .menu-open .brand .logo-light{ opaci
 /* ---------- proof (dark) ---------- */
 .proof{ position:relative; min-height:100svh; padding:clamp(100px,16vh,180px) var(--edge); display:flex; flex-direction:column; justify-content:center; }
 .proof h2{ font-size:clamp(46px,6.4vw,106px); line-height:.95; max-width:13ch; margin-bottom:clamp(50px,9vh,110px); position:relative; z-index:2; }
-.stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,48px); position:relative; z-index:2; max-width:1000px; }
+.stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,48px); position:relative; z-index:2; max-width:920px; }
 .stat{ border-top:1px solid var(--line); padding-top:22px; }
 .stat b{ display:block; font-family:var(--serif); font-weight:400; font-size:clamp(70px,10vw,168px); line-height:.9; letter-spacing:-.04em; margin-bottom:14px; }
-.stat p{ color:var(--muted); font-size:15.5px; max-width:24ch; }
+.stat p{ color:rgba(247,236,230,.88); font-size:15.5px; max-width:24ch; }
 
 /* ---------- scroll-linked marquee ---------- */
 .marquee{ overflow:hidden; padding:clamp(40px,8vh,100px) 0; }
@@ -335,6 +336,9 @@ footer{ padding:clamp(50px,8vh,90px) var(--edge) 28px; border-top:1px solid var(
   .final h2{ font-size:clamp(64px,22vw,150px); }
   .final{ padding-bottom:calc(20vmin + 76px); }
   .a-final{ top:calc(100% + 20vmin); }
+  /* chiffres : la perle se pose dans l'espace libre sous le texte, jamais derrière */
+  .proof{ padding-bottom:calc(48vmin + 56px); }
+  .a-proof{ left:62%; top:calc(100% - 26vmin); }
   .final-foot{ position:static; margin-top:60px; justify-content:center; }
   .sound span{ display:none; }
   .menu a{ font-size:clamp(26px,7.4vw,40px); }
