@@ -21,7 +21,8 @@
     lenis.on('scroll', function(){ cbs.forEach(function(f){ f(); }); });
     (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
   } else {
-    window.addEventListener('scroll', function(){ cbs.forEach(function(f){ f(); }); }, { passive: true });
+    var queued = false;   // one pass per frame, never one per scroll event
+    window.addEventListener('scroll', function(){ if (queued) return; queued = true; requestAnimationFrame(function(){ queued = false; cbs.forEach(function(f){ f(); }); }); }, { passive: true });
   }
   function scrollToEl(el){
     if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.8, easing: function(t){ return 1 - Math.pow(1 - t, 4); } });
@@ -127,8 +128,9 @@
   var mq = $('[data-marquee]'), mqW = 0;
   function measure(){ if (mq) mqW = mq.scrollWidth / 3; }
   window.addEventListener('resize', measure); window.addEventListener('load', measure); measure();
+  var touchOnly = window.matchMedia('(pointer: coarse)').matches;
   function motion(){
-    if (reduced) return;
+    if (reduced || touchOnly) return;   // phones: CSS keeps images and numerals still, the marquee runs on its own
     var vh = window.innerHeight;
     pxs.forEach(function(o){
       var r = o.w.getBoundingClientRect(); if (r.bottom < -80 || r.top > vh + 80) return;

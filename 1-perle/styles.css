@@ -347,3 +347,14 @@ footer{ padding:clamp(50px,8vh,90px) var(--edge) 28px; border-top:1px solid var(
   .rv,.wi,.mask,.mask img,.hw .ch{ opacity:1 !important; transform:none !important; clip-path:none !important; }
   .hero-stage{ opacity:1 !important; }
 }
+
+/* ---------- stabilité sur écran tactile : rien ne bouge en JavaScript pendant le défilement ---------- */
+.frame{ transform:translateZ(0); backface-visibility:hidden; }   /* chaque image a sa propre couche : pas de scintillement */
+#pearl{ transform:translateZ(0); }
+@keyframes m-run{ to{ transform:translate3d(-33.3333%,0,0); } }
+@media (pointer: coarse){
+  .px img, .frame.px img{ height:100%; translate:none; }
+  .roman{ will-change:auto; }
+  .marquee-track{ animation:m-run 32s linear infinite; }
+}
+@media (pointer: coarse) and (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }

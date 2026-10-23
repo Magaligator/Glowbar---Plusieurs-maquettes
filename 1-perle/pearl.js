@@ -80,7 +80,7 @@
   function resize(){
     // phones: the address bar shows/hides and fires resize events — keep the canvas as it is unless the width changes
     if (coarse && W && window.innerWidth === W) return;
-    dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 1.75);
+    dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.25 : 1.75);
     W = window.innerWidth;
     H = coarse ? Math.max(window.innerHeight, window.screen.height || 0) : window.innerHeight;   // tall enough for the bar-less viewport
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
@@ -93,27 +93,38 @@
   var lerp = function(a, b, t){ return a + (b - a) * t; };
   var clamp = function(v, a, b){ return Math.max(a, Math.min(b, v)); };
 
-  // sections that carry an anchor
+  // sections that carry an anchor. Their page positions are measured once (and refreshed rarely),
+  // so the animation frame never forces the browser to recompute the layout while the page scrolls.
   var sections = Array.prototype.slice.call(document.querySelectorAll('[data-sec]')).map(function(sec){
-    return { sec: sec, anchor: sec.querySelector('[data-pearl]') };
+    return { sec: sec, anchor: sec.querySelector('[data-pearl]'), top: 0, bottom: 0, ax: 0, ay: 0, probe: parseFloat(sec.dataset.probe || 0.5) };
   });
   var current = sections.filter(function(s){ return s.anchor; })[0] || null;
+  function measure(){
+    var sy = window.pageYOffset, sx = window.pageXOffset;
+    sections.forEach(function(s){
+      var r = s.sec.getBoundingClientRect(); s.top = r.top + sy; s.bottom = r.bottom + sy;
+      if (s.anchor) { var a = s.anchor.getBoundingClientRect(); s.ax = a.left + sx; s.ay = a.top + sy; }
+    });
+  }
+  measure();
+  window.addEventListener('load', measure); window.addEventListener('resize', measure); window.addEventListener('orientationchange', measure);
+  setInterval(function(){ if (!document.hidden) measure(); }, 1200);   // catches late layout changes (fonts, images)
 
   var S = { x: W * 0.5, y: H * 0.5, r: 0, a: hex('#F3BCD6'), b: hex('#E9A0C6'), dark: 0, hold: 0, pulse: 1, wob: 0, mx: 0, my: 0, intro: 0 };
   var holding = false, pulsing = false, introOn = false, mouse = { x: 0, y: 0 }, lastY = window.scrollY, vel = 0;
 
   function target(){
+    var sy = window.pageYOffset, sx = window.pageXOffset, vh = window.innerHeight;
     for (var i = sections.length - 1; i >= 0; i--) {
-      var probe = window.innerHeight * parseFloat(sections[i].sec.dataset.probe || 0.5);   // the footer is read lower down the screen
-      var rc = sections[i].sec.getBoundingClientRect();
-      if (rc.top <= probe && rc.bottom > probe) { if (sections[i].anchor) current = sections[i]; break; }
+      var s = sections[i], probeY = sy + vh * s.probe;   // the footer is read lower down the screen
+      if (s.top <= probeY && s.bottom > probeY) { if (s.anchor) current = s; break; }
     }
     if (!current) return null;
-    var a = current.anchor, rect = a.getBoundingClientRect();
-    var vmin = Math.min(W, window.innerHeight) / 100, small = W < 800;
+    var a = current.anchor;
+    var vmin = Math.min(W, vh) / 100, small = W < 800;
     var r = small ? (a.dataset.rm ? parseFloat(a.dataset.rm) : parseFloat(a.dataset.r || 12) * 0.78) : parseFloat(a.dataset.r || 12);
     return {
-      x: rect.left, y: rect.top,
+      x: current.ax - sx, y: current.ay - sy,
       r: r * vmin,
       a: hex(a.dataset.a || '#F3BCD6'), b: hex(a.dataset.b || '#E9A0C6'),
       dark: current.sec.dataset.theme === 'dark' ? 1 : 0
