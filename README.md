@@ -4,10 +4,10 @@ Une page unique (`index.html`) donne accès aux quatre versions du site, chacune
 
 | Version | Dossier | Description |
 |---|---|---|
-| 1 | `v1/` | « An atelier for your face » — direction chic, palette brun et rose |
-| 2 | `v2/` | Accueil avec chiffres clés, logo officiel, photo du hero détourée (version retenue par la cliente) |
-| 3 | `v3/` | Blanc épuré, boutons roses, rappels de brun, slider avant-gardiste, défilement fluide |
-| 4 | `v4/` | « Perle » — récit au scroll autour d'une perle 3D (WebGL), menu plein écran, points cliquables sur les produits |
+| 1 | `v1/` | « Perle » — récit au scroll autour d'une perle 3D (WebGL), menu plein écran, points cliquables sur les produits |
+| 2 | `v2/` | « An atelier for your face » — direction chic, palette brun et rose |
+| 3 | `v3/` | « Le rituel en mouvement » — chiffres clés, visite du studio, sphères flottantes et apparitions au défilement |
+| 4 | `v4/` | Blanc épuré, boutons roses, rappels de brun, slider avant-gardiste, défilement fluide |
 
 Chaque dossier est un site statique autonome : HTML, CSS et JavaScript, sans étape de build.
 

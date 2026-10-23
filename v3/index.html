@@ -4,50 +4,359 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glowbar — The Original Home of Face Pilates | Geneva</title>
-<meta name="description" content="Glowbar — the original home of face pilates in Geneva. A gentle, precise ritual of facial movement, paired with a nourishing wellness bar.">
-<meta name="theme-color" content="#4A211C">
-<link rel="icon" href="assets/logos/monogram-taupe.png">
+<title>Glowbar — Home of Face Pilates | Geneva</title>
+<meta name="description" content="Glowbar — Geneva's atelier of face pilates. An intimate ritual of movement, nourishment and grace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script>
-  document.documentElement.classList.add('js');
-  try{ if(sessionStorage.getItem('glowbar-v3-seen')) document.documentElement.classList.add('seen'); }catch(e){}
-</script>
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,340;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:        #FBF5F0;
+    --cream-deep:   #F3E9E2;
+    --blush:        #FBE3EA;
+    --pink:         #F3BFD8;
+    --pink-deep:    #E895BB;
+    --mauve:        #C7ACA6;
+    --mauve-deep:   #9C8480;
+    --taupe:        #7E6D6A;
+    --oxblood:      #4A211C;
+    --oxblood-2:    #6B332B;
+    --ink:          #241C1A;
+    --white:        #FFFFFF;
+
+    --font-display: 'Fraunces', serif;
+    --font-script:  'Mrs Saint Delafield', cursive;
+    --font-body:    'Inter', sans-serif;
+    --ease: cubic-bezier(.16,.8,.3,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-anchor:none;}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:var(--font-body);font-weight:300;
+    font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--pink);color:var(--oxblood);}
+  .container{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+  .eyebrow{
+    display:flex;align-items:center;gap:14px;
+    font-family:var(--font-body);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--mauve-deep);margin-bottom:22px;font-weight:500;
+  }
+  .eyebrow::before, .eyebrow.center::after{content:"";width:34px;height:1px;background:var(--mauve);}
+  .eyebrow.center{justify-content:center;}
+  .center{text-align:center;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em;color:var(--oxblood);}
+  em{font-style:italic;color:var(--pink-deep);}
+  .script{font-family:var(--font-script);color:var(--oxblood);}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,245,240,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--mauve);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,5vw,64px);max-width:1180px;margin:0 auto;}
+  .nav-logo{font-family:var(--font-script);font-size:30px;color:var(--oxblood);}
+  .nav-links{display:flex;gap:40px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;}
+  .nav-links a{position:relative;color:var(--taupe);padding-bottom:3px;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--pink-deep);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+  }
+  .nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
+  .nav-links a.active{color:var(--oxblood);}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .nav-toggle{
+    display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;
+  }
+  .nav-toggle span{width:22px;height:1.5px;background:var(--oxblood);display:block;transition:transform .3s var(--ease),opacity .3s var(--ease);}
+  .nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .mobile-panel{
+    display:none;flex-direction:column;border-top:1px solid var(--mauve);background:var(--cream);
+  }
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{
+    padding:16px clamp(20px,5vw,64px);border-bottom:1px solid var(--mauve);
+    font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink);
+  }
+  .mobile-panel a.active{color:var(--oxblood);}
+  .btn{
+    display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+    padding:13px 30px;border-radius:2px;transition:all .3s var(--ease);
+  }
+  .btn-primary{background:var(--oxblood);color:var(--cream);}
+  .btn-primary:hover{background:var(--oxblood-2);}
+  .btn-outline{border:1px solid var(--oxblood);color:var(--oxblood);}
+  .btn-outline:hover{background:var(--oxblood);color:var(--cream);}
+  .btn-sm{padding:10px 22px;font-size:11px;}
+
+  /* HERO */
+  .hero{padding:70px 0 110px;position:relative;}
+  .hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center;}
+  .display{font-size:clamp(42px,5.2vw,68px);line-height:1.08;margin:0 0 26px;font-weight:340;}
+  .hero-stats .display{max-width:780px;}
+  .stats-row{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;
+  }
+  .stat-block{
+    padding:0 36px;border-left:1px solid var(--mauve);
+  }
+  .stat-block:first-child{padding-left:0;border-left:none;}
+  .stat-number{
+    display:block;font-family:var(--font-display);font-style:italic;font-weight:340;
+    font-size:clamp(40px,5vw,62px);color:var(--oxblood);line-height:1;margin-bottom:18px;
+  }
+  .stat-block p{color:var(--taupe);font-size:15px;line-height:1.6;margin:0;}
+  @media (max-width:900px){
+    .stats-row{grid-template-columns:1fr;gap:36px;}
+    .stat-block{padding-left:0;border-left:none;padding-top:28px;border-top:1px solid var(--mauve);}
+    .stat-block:first-child{padding-top:0;border-top:none;}
+  }
+  .lede{font-size:18px;color:var(--taupe);max-width:420px;margin-bottom:38px;font-weight:300;}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-media{position:relative;}
+  .hero-media .frame{
+    position:relative;padding:18px;background:var(--white);
+    box-shadow:0 30px 60px -20px rgba(74,33,28,.25);
+  }
+  .hero-media img{aspect-ratio:4/5;object-fit:cover;}
+  .hero-media .corner{
+    position:absolute;bottom:-26px;left:-26px;
+    background:var(--oxblood);color:var(--cream);
+    padding:22px 26px;max-width:230px;
+    font-family:var(--font-display);font-style:italic;font-size:14.5px;line-height:1.5;
+    box-shadow:0 20px 40px -15px rgba(74,33,28,.4);
+  }
+
+  /* DIVIDER QUOTE */
+  .statement{padding:100px 0;text-align:center;border-top:1px solid var(--mauve);border-bottom:1px solid var(--mauve);}
+  .statement p{
+    font-family:var(--font-display);font-style:italic;font-weight:340;
+    font-size:clamp(24px,3.4vw,38px);line-height:1.35;max-width:820px;margin:0 auto;color:var(--oxblood);
+  }
+
+  /* METHOD */
+  .section{padding:110px 0;}
+  .section-head{max-width:640px;margin:0 auto 70px;}
+  .section-head h2{font-size:clamp(30px,3.6vw,46px);line-height:1.15;font-weight:340;}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;}
+  .pillar{text-align:center;}
+  .pillar-media{
+    aspect-ratio:3/4;overflow:hidden;margin-bottom:26px;
+    border:1px solid var(--mauve);padding:10px;background:var(--white);
+  }
+  .pillar-media img{width:100%;height:100%;object-fit:cover;}
+  .pillar .roman{font-family:var(--font-script);font-size:26px;color:var(--pink-deep);display:block;margin-bottom:10px;}
+  .pillar h3{font-size:22px;margin-bottom:12px;font-weight:400;}
+  .pillar p{color:var(--taupe);font-size:15px;max-width:280px;margin:0 auto;}
+
+  /* SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+  .split.split-wide{grid-template-columns:1.3fr .95fr;align-items:stretch;}
+  .split.split-wide .split-media{height:100%;}
+  .split.split-wide .split-media img{height:100%;object-fit:cover;}
+  .split-media{padding:14px;background:var(--white);box-shadow:0 30px 60px -25px rgba(74,33,28,.22);}
+  .split-media img{aspect-ratio:5/6;object-fit:cover;}
+  .split-copy h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin-bottom:20px;font-weight:340;}
+  .split-copy .lede{margin-bottom:24px;}
+  .split-copy ul{list-style:none;margin:0 0 32px;padding:0;}
+  .split-copy li{
+    padding:14px 0;border-bottom:1px solid var(--mauve);
+    display:flex;align-items:center;gap:12px;color:var(--ink);font-size:15px;
+  }
+  .split-copy li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--pink-deep);flex:none;}
+
+  /* ESHOP PREVIEW */
+  .eshop-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .eshop-card-media{
+    aspect-ratio:4/5;background:var(--white);padding:10px;margin-bottom:18px;
+    box-shadow:0 20px 40px -22px rgba(74,33,28,.25);position:relative;overflow:hidden;
+  }
+  .eshop-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .eshop-card:hover .eshop-card-media img{transform:scale(1.04);}
+  .eshop-card-tag{
+    position:absolute;top:18px;left:18px;background:var(--pink-deep);color:var(--white);
+    font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;font-weight:600;
+  }
+  .eshop-card .cat{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mauve-deep);font-weight:500;}
+  .eshop-card h3{font-size:19px;margin:6px 0 10px;font-weight:400;}
+  .eshop-card .product-row{display:flex;align-items:center;justify-content:space-between;}
+  .eshop-card .price{font-family:var(--font-body);font-size:14.5px;color:var(--oxblood);font-weight:500;}
+  .eshop-card .add-link{
+    width:34px;height:34px;border-radius:50%;border:1px solid var(--oxblood);color:var(--oxblood);
+    display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s var(--ease);
+  }
+  .eshop-card .add-link:hover{background:var(--oxblood);color:var(--cream);transform:rotate(90deg);}
+
+  /* VIDEO FEATURE */
+  .video-feature{
+    position:relative;padding:14px;background:var(--white);
+    box-shadow:0 30px 60px -25px rgba(74,33,28,.22);
+  }
+  .video-feature video{width:100%;aspect-ratio:9/16;max-height:520px;object-fit:cover;display:block;background:var(--ink);}
+
+  @media (max-width:900px){
+    .eshop-preview{grid-template-columns:1fr 1fr;}
+  }
+
+  /* FOUNDER QUOTE */
+  .quote-section{padding:120px 0;background:var(--blush);}
+  .quote-block{max-width:760px;margin:0 auto;text-align:center;}
+  .quote-block .script{font-size:44px;display:block;margin-bottom:24px;}
+  .quote-block blockquote{
+    font-family:var(--font-display);font-style:italic;font-weight:340;
+    font-size:clamp(22px,2.8vw,30px);line-height:1.5;color:var(--oxblood);margin:0 0 22px;
+  }
+  .quote-block cite{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);font-style:normal;}
+
+  /* CTA */
+  .cta-band{
+    background:linear-gradient(160deg,var(--oxblood),var(--oxblood-2));
+    color:var(--cream);padding:110px 0;text-align:center;border-radius:2px;
+  }
+  .cta-band .eyebrow{color:var(--pink);justify-content:center;}
+  .cta-band .eyebrow::before, .cta-band .eyebrow::after{background:var(--pink-deep);}
+  .cta-band h2{color:var(--cream);font-size:clamp(30px,4.2vw,50px);font-weight:340;margin-bottom:22px;}
+  .cta-band p{color:var(--mauve);max-width:420px;margin:0 auto 40px;}
+  .cta-band .cta-row{justify-content:center;}
+  .btn-light{background:var(--cream);color:var(--oxblood);}
+  .btn-light:hover{background:var(--white);}
+  .btn-ghost-dark{border:1px solid var(--mauve);color:var(--cream);}
+  .btn-ghost-dark:hover{border-color:var(--cream);}
+
+  /* FOOTER */
+  footer{padding:80px 0 30px;border-top:1px solid var(--mauve);}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;}
+  .footer-brand .script{font-size:32px;display:block;margin-bottom:10px;}
+  .footer-brand p{color:var(--taupe);font-size:14px;max-width:240px;}
+  .footer-col h4{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mauve-deep);margin:0 0 18px;font-weight:600;}
+  .footer-col ul{list-style:none;margin:0;padding:0;}
+  .footer-col li{margin-bottom:12px;}
+  .footer-col a{color:var(--ink);font-size:14.5px;}
+  .footer-col a:hover{color:var(--pink-deep);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;padding-top:26px;border-top:1px solid var(--mauve);
+    font-size:12px;color:var(--taupe);letter-spacing:.04em;
+  }
+  .footer-social{display:flex;gap:22px;}
+  .footer-social a:hover{color:var(--pink-deep);}
+
+  /* FORMS */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .contact-form-wrap{background:var(--white);padding:40px;box-shadow:0 30px 60px -25px rgba(74,33,28,.22);}
+  .contact-form{display:flex;flex-direction:column;gap:20px;}
+  .contact-form label{
+    display:flex;flex-direction:column;gap:8px;
+    font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mauve-deep);font-weight:500;
+  }
+  .contact-form input,.contact-form textarea{
+    font-family:var(--font-body);font-size:15px;color:var(--ink);font-weight:400;
+    background:var(--cream);border:1px solid var(--mauve);border-radius:2px;
+    padding:12px 14px;resize:vertical;
+  }
+  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--oxblood);}
+  .contact-form button{align-self:flex-start;}
+  .form-note{color:var(--oxblood);font-size:14px;margin-top:16px;}
+  .newsletter-form{display:flex;gap:8px;margin:20px 0 6px;max-width:320px;}
+  .newsletter-form input{
+    flex:1;min-width:0;font-family:var(--font-body);font-size:14px;color:var(--ink);
+    background:var(--cream);border:1px solid var(--mauve);border-radius:2px;padding:10px 12px;
+  }
+  .newsletter-form input:focus{outline:none;border-color:var(--oxblood);}
+  .footer-brand .form-note{font-size:13px;max-width:240px;}
+  .banner{
+    background:var(--oxblood);color:var(--blush);padding:9px 0;
+    font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+    overflow:hidden;white-space:nowrap;
+  }
+  .banner .marquee{
+    display:inline-flex;width:max-content;
+    animation:marquee-scroll 24s linear infinite;
+  }
+  .banner .marquee span{padding:0 36px;}
+  @keyframes marquee-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .banner .marquee{animation:none;}
+  }
+
+  @media (max-width:900px){
+    .hero-grid, .split, .split.split-wide, .footer-top{grid-template-columns:1fr;gap:50px;}
+    .split.split-wide .split-media{height:auto;}
+    .split.split-wide .split-media img{height:auto;aspect-ratio:16/9;}
+    .pillars{grid-template-columns:1fr;gap:60px;}
+    .nav-links{display:none;}
+    .nav-toggle{display:inline-flex;}
+    .hero-media .corner{position:static;margin-top:18px;max-width:none;}
+
+    /* homogeneous mobile spacing rhythm */
+    .hero{padding:48px 0 56px;}
+    .section{padding:64px 0;}
+    .statement{padding:56px 0;}
+    .quote-section{padding:64px 0;}
+    .cta-band{padding:64px 0;}
+    footer{padding:56px 0 24px;}
+    .footer-top{gap:40px;padding-bottom:36px;}
+    .contact-form-wrap{padding:28px;}
+    .stats-row{margin-top:40px;}
+  }
+
+  .nav-logo{display:inline-flex;align-items:center;}
+  .nav-logo img{height:34px;width:auto;display:block;}
+  .footer-brand .brand-logo{height:44px;width:auto;margin-bottom:12px;}
+  .product-card.soon .brand-logo{height:46px;width:auto;}
+
+  /* hero: silhouette cut out of its white backdrop (client feedback) */
+  .hero-media .frame{padding:0;background:none;box-shadow:none;display:flex;justify-content:center;}
+  .hero-media .frame::before{
+    content:"";position:absolute;left:50%;top:50%;width:min(88%,460px);aspect-ratio:1;
+    transform:translate(-50%,-52%);border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,var(--blush),var(--pink) 130%);opacity:.55;
+  }
+  .hero-media .frame img{
+    position:relative;width:auto;max-width:100%;max-height:640px;aspect-ratio:auto;object-fit:contain;
+    -webkit-mask-image:linear-gradient(to bottom,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,#000 86%,transparent 100%);
+  }
+</style>
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 
-<div class="loader" aria-hidden="true"><img src="assets/logos/monogram-pink.png" alt="" width="900" height="542"></div>
-<div class="progress" aria-hidden="true"></div>
-
-<div class="strip" aria-hidden="true">
-  <div class="strip-track">
-    <span>The Original Home of Face Pilates <img src="assets/logos/monogram-pink.png" alt=""> Geneva, Switzerland <img src="assets/logos/monogram-pink.png" alt=""> Face pilates &amp; wellness bar <img src="assets/logos/monogram-pink.png" alt=""></span>
-    <span>The Original Home of Face Pilates <img src="assets/logos/monogram-pink.png" alt=""> Geneva, Switzerland <img src="assets/logos/monogram-pink.png" alt=""> Face pilates &amp; wellness bar <img src="assets/logos/monogram-pink.png" alt=""></span>
-    <span>The Original Home of Face Pilates <img src="assets/logos/monogram-pink.png" alt=""> Geneva, Switzerland <img src="assets/logos/monogram-pink.png" alt=""> Face pilates &amp; wellness bar <img src="assets/logos/monogram-pink.png" alt=""></span>
-    <span>The Original Home of Face Pilates <img src="assets/logos/monogram-pink.png" alt=""> Geneva, Switzerland <img src="assets/logos/monogram-pink.png" alt=""> Face pilates &amp; wellness bar <img src="assets/logos/monogram-pink.png" alt=""></span>
+<div class="banner">
+  <div class="marquee" aria-hidden="false">
+    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
+    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
+    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
+    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
   </div>
 </div>
 
-<header class="site-header">
-  <nav class="nav" aria-label="Main">
-    <a href="index.html" class="nav-logo" aria-label="Glowbar — home"><img src="assets/logos/wordmark-taupe.png" alt="Glowbar" width="1400" height="439"></a>
+<header>
+  <nav class="nav">
+    <a href="#" class="nav-logo"><img src="assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></a>
     <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
+      <a href="#" class="active">Home</a>
       <a href="#method">The Method</a>
       <a href="shop.html">Shop</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
-      <a href="#book" class="btn btn-primary btn-sm magnetic">Opening soon</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="#book" class="btn btn-primary btn-sm">Opening soon</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
   <div class="mobile-panel">
-    <a href="index.html">Home</a>
+    <a href="#" class="active">Home</a>
     <a href="#method">The Method</a>
     <a href="shop.html">Shop</a>
     <a href="#studio">Studio</a>
@@ -58,248 +367,205 @@
 
 <main>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow rv">Geneva, Switzerland</span>
-        <h1 data-split>The original home of <em>face pilates.</em></h1>
-        <p class="lede rv" style="--d:.35s">A gentle, precise ritual of facial movement — paired with a nourishing bar — designed for women who treat self-care as an art, not an errand.</p>
-        <div class="cta-row rv" style="--d:.5s">
-          <a href="#book" class="btn btn-primary magnetic">Join the opening list</a>
-          <a href="#method" class="btn btn-outline magnetic">Discover the ritual</a>
-        </div>
-        <div class="hero-meta rv" style="--d:.65s">
-          <div><strong data-count="40" data-suffix="+">40+</strong><span>Facial muscles</span></div>
-          <div><strong data-count="45" data-suffix="′">45′</strong><span>Per session</span></div>
+        <span class="eyebrow">Geneva, Switzerland</span>
+        <h1 class="display">An atelier<br>for <em>your face.</em></h1>
+        <p class="lede">A gentle, precise ritual of facial movement — paired with a nourishing bar — designed for women who treat self-care as an art, not an errand.</p>
+        <div class="cta-row">
+          <a href="#book" class="btn btn-primary">Join the opening list</a>
+          <a href="#method" class="btn btn-outline">Discover the ritual</a>
         </div>
       </div>
       <div class="hero-media">
-        <span class="sphere s1" data-speed="-.05"></span>
-        <span class="sphere s2" data-speed=".08"></span>
-        <span class="sphere s3" data-speed="-.1"></span>
-        <span class="sphere s4" data-speed=".05"></span>
-        <img class="photo" src="assets/hero-model.webp" alt="Glowbar client holding pink sculpting weights" width="1911" height="2400" fetchpriority="high" decoding="async">
-        <div class="hero-quote">“Care, elevated to a ritual.”</div>
+        <div class="frame">
+          <img src="assets/campaign-dumbbells-cutout.png" alt="Glowbar client holding pink sculpting weights" width="555" height="716" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="corner">"Care, elevated to a ritual." — the Glowbar promise</div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats">
+  <section class="hero hero-stats">
     <div class="container">
-      <div class="stats-head">
-        <span class="eyebrow rv">Why the face deserves a workout</span>
-        <h2 data-split>Beauty has evolved everywhere except <em>the face.</em></h2>
-      </div>
+      <span class="eyebrow">Why the face deserves a workout</span>
+      <h2 class="display">Beauty has evolved<br>everywhere except the face.</h2>
       <div class="stats-row">
-        <div class="stat rv">
-          <span class="stat-number" data-count="90" data-suffix="%">90%</span>
+        <div class="stat-block">
+          <span class="stat-number">90%</span>
           <p>of beauty products only treat the surface layer of the skin.</p>
         </div>
-        <div class="stat rv" style="--d:.12s">
-          <span class="stat-number" data-count="40" data-suffix="+">40+</span>
+        <div class="stat-block">
+          <span class="stat-number">40+</span>
           <p>facial muscles responsible for lift and tone remain untrained by any dedicated method — until now.</p>
         </div>
-        <div class="stat rv" style="--d:.24s">
-          <span class="stat-number" data-count="80" data-suffix="%">80%</span>
+        <div class="stat-block">
+          <span class="stat-number">80%</span>
           <p>of visible aging is driven by tension and circulation, not the skin's surface alone.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RITUAL SLIDER -->
-  <section class="ritual" id="method" aria-roledescription="carousel" aria-label="The Glowbar ritual">
-    <div class="ritual-words" aria-hidden="true">
-      <span class="ritual-word">Sculpt</span>
-      <span class="ritual-word">Glide</span>
-      <span class="ritual-word">Glow</span>
-      <span class="ritual-word">Studio</span>
-    </div>
-
+<section class="section" id="method">
     <div class="container">
-      <div class="ritual-head">
-        <div>
-          <span class="eyebrow rv">The Glowbar ritual</span>
-          <h2 data-split>Four gestures, <em>one</em> philosophy.</h2>
-        </div>
-        <div class="ritual-count rv" aria-hidden="true"><b data-current>01</b> / <span data-total>04</span></div>
+      <div class="section-head center">
+        <span class="eyebrow center">The Glowbar Ritual</span>
+        <h2>Three gestures, one philosophy.</h2>
       </div>
-
-      <div class="ritual-grid">
-        <div class="ritual-copy">
-          <div class="ritual-texts" aria-live="polite">
-            <article class="rt" role="group" aria-roledescription="slide" aria-label="1 of 4">
-              <span class="roman fade">I.</span>
-              <h3 data-split>Face pilates</h3>
-              <p class="fade" style="--k:1">Delicate, expert-guided movement to lift and tone — a workout as graceful as it is effective.</p>
-              <a href="#book" class="link-arrow fade" style="--k:2">Opening soon <span aria-hidden="true">→</span></a>
-            </article>
-            <article class="rt" role="group" aria-roledescription="slide" aria-label="2 of 4">
-              <span class="roman fade">II.</span>
-              <h3 data-split>The tools</h3>
-              <p class="fade" style="--k:1">Rose quartz, mirror steel and the sculpting ball — precise instruments that extend the ritual at home.</p>
-              <a href="shop.html" class="link-arrow fade" style="--k:2">Shop the tools <span aria-hidden="true">→</span></a>
-            </article>
-            <article class="rt" role="group" aria-roledescription="slide" aria-label="3 of 4">
-              <span class="roman fade">III.</span>
-              <h3 data-split>The wellness bar</h3>
-              <p class="fade" style="--k:1">Glow-optimised blends, poured to nourish your radiance from within, after every session.</p>
-              <a href="shop.html" class="link-arrow fade" style="--k:2">See the blends <span aria-hidden="true">→</span></a>
-            </article>
-            <article class="rt" role="group" aria-roledescription="slide" aria-label="4 of 4">
-              <span class="roman fade">IV.</span>
-              <h3 data-split>A moment, just for you</h3>
-              <p class="fade" style="--k:1">An intimate studio designed as a quiet retreat — a pause between the world and home.</p>
-              <a href="#studio" class="link-arrow fade" style="--k:2">Step inside <span aria-hidden="true">→</span></a>
-            </article>
-          </div>
-          <div class="ritual-controls">
-            <button class="rc-btn" data-prev aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-            <button class="rc-btn" data-next aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="rc-bar" aria-hidden="true"><i></i></div>
-          </div>
-        </div>
-
-        <div class="ritual-stage" tabindex="0" aria-label="Drag or use the arrow keys to browse the ritual">
-          <div class="ritual-ring" aria-hidden="true"></div>
-          <div class="ritual-frame">
-            <div class="ri" data-shape="50%"><img src="assets/treatment-ball.jpg" alt="Facial sculpting tool applied to the cheek" draggable="false"></div>
-            <div class="ri" data-shape="50% 50% 2% 2% / 40% 40% 2% 2%"><img src="assets/tools-flatlay.jpg" alt="Glowbar headband, sculpting ball and mirror gua sha" draggable="false" style="object-position:50% 70%"></div>
-            <div class="ri" data-shape="50% / 40%"><img src="assets/smoothie-pour.jpg" alt="A Glowbar smoothie being poured" draggable="false"></div>
-            <div class="ri" data-shape="58% 42% 52% 48% / 44% 56% 44% 56%"><img src="assets/studio-interior.jpg" alt="Glowbar studio interior" draggable="false"></div>
-          </div>
-          <span class="sphere o1" aria-hidden="true"></span>
-          <span class="sphere o2" aria-hidden="true"></span>
-          <div class="ritual-cursor" aria-hidden="true">Drag</div>
-        </div>
-
-        <ol class="ritual-index">
-          <li><button class="ri-btn"><small>01</small>Face pilates</button></li>
-          <li><button class="ri-btn"><small>02</small>The tools</button></li>
-          <li><button class="ri-btn"><small>03</small>The wellness bar</button></li>
-          <li><button class="ri-btn"><small>04</small>The studio</button></li>
-        </ol>
+      <div class="pillars">
+        <article class="pillar">
+          <div class="pillar-media"><img src="assets/treatment-ball.jpg" alt="Facial sculpting tool applied to the cheek" loading="lazy" decoding="async"></div>
+          <span class="roman">I.</span>
+          <h3>Face pilates</h3>
+          <p>Delicate, expert-guided movement to lift and tone — a workout as graceful as it is effective.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar-media"><img src="assets/smoothie-pour.jpg" alt="A Glowbar smoothie being poured" loading="lazy" decoding="async"></div>
+          <span class="roman">II.</span>
+          <h3>The wellness bar</h3>
+          <p>Glow-optimised blends, poured to nourish your radiance from within, after every session.</p>
+        </article>
+        <article class="pillar">
+          <div class="pillar-media"><img src="assets/studio-interior.jpg" alt="Glowbar studio interior" loading="lazy" decoding="async"></div>
+          <span class="roman">III.</span>
+          <h3>A moment, just for you</h3>
+          <p>An intimate studio designed as a quiet retreat — a pause between the world and home.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- STUDIO -->
-  <section class="section" id="studio">
+  <section class="section" id="studio" style="padding-top:50px;">
     <div class="container">
-      <div class="split">
-        <div class="split-media">
-          <div class="frame px mask-img"><img src="assets/wellness-counter.jpg" alt="Glowbar wellness bar counter with neon signage, smoothies and fresh ingredients" loading="lazy" decoding="async"></div>
-          <span class="tag">Geneva</span>
-        </div>
+      <div class="split split-wide">
+        <div class="split-media"><img src="assets/wellness-counter.jpg" alt="Glowbar wellness bar counter with neon signage, smoothies and fresh ingredients" loading="lazy" decoding="async"></div>
         <div class="split-copy">
-          <span class="eyebrow rv">Step inside</span>
-          <h2 data-split>A studio dressed like a <em>boudoir.</em></h2>
-          <p class="lede rv" style="--d:.2s">Soft light, warm blush tones and heated treatment chairs — every detail composed for a moment of quiet indulgence.</p>
-          <ul class="checks rv" style="--d:.3s">
+          <span class="eyebrow">Step inside</span>
+          <h2>A studio dressed<br>like a boudoir.</h2>
+          <p class="lede">Soft light, warm blush tones and heated treatment chairs — every detail composed for a moment of quiet indulgence.</p>
+          <ul>
             <li>Private treatment chairs, heated &amp; upholstered</li>
             <li>A dedicated bar for pre &amp; post-session blends</li>
             <li>Intimate class sizes, led by our master practitioners</li>
           </ul>
-          <div class="cta-row rv" style="--d:.4s"><a href="#book" class="btn btn-primary magnetic">Join the opening list</a></div>
+          <div class="cta-row"><a href="#book" class="btn btn-primary">Join the opening list</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOP PREVIEW -->
-  <section class="section section-paper">
+  <section class="section" style="padding-top:50px;">
     <div class="container">
-      <div class="shop-head">
-        <div>
-          <span class="eyebrow rv">Shop the edit</span>
-          <h2 data-split>Bring the atelier <em>home</em> with you.</h2>
-        </div>
-        <a href="shop.html" class="btn btn-outline magnetic rv">View the full shop</a>
+      <div class="section-head center">
+        <span class="eyebrow center">Shop the edit</span>
+        <h2>Bring the atelier home with you.</h2>
       </div>
-      <div class="cards">
-        <a href="shop.html" class="card rv">
-          <div class="card-media"><span class="card-tag">Best-seller</span><img src="assets/product-collagen-cream.jpg" alt="Glowbar Collagen Cream" loading="lazy" width="402" height="476"></div>
-          <div class="card-body"><span class="cat">Skincare</span><h3>Glowbar Collagen Cream</h3><div class="card-row"><span class="price">CHF 54.—</span><span class="add" aria-hidden="true">+</span></div></div>
-        </a>
-        <a href="shop.html" class="card rv" style="--d:.12s">
-          <div class="card-media"><img src="assets/product-tools-set.jpg" alt="Mirror gua sha engraved Glowbar" loading="lazy" width="800" height="800"></div>
-          <div class="card-body"><span class="cat">Tools</span><h3>Mirror Gua Sha</h3><div class="card-row"><span class="price">CHF 64.—</span><span class="add" aria-hidden="true">+</span></div></div>
-        </a>
-        <a href="shop.html" class="card rv" style="--d:.24s">
-          <div class="card-media"><img src="assets/product-smoothie-lineup.jpg" alt="Glowbar glow smoothie range" loading="lazy" width="800" height="447" style="object-position:40% 50%"></div>
-          <div class="card-body"><span class="cat">Smoothies</span><h3>Smoothie Glow Berry</h3><div class="card-row"><span class="price">CHF 12.—</span><span class="add" aria-hidden="true">+</span></div></div>
-        </a>
+      <div class="eshop-preview">
+        <article class="eshop-card">
+          <div class="eshop-card-media">
+            <span class="eshop-card-tag">Best-seller</span>
+            <img src="assets/product-collagen-cream.jpg" alt="Glowbar Collagen Cream" loading="lazy" decoding="async" width="800" height="946">
+          </div>
+          <span class="cat">Skincare</span>
+          <h3>Glowbar Collagen Cream</h3>
+          <div class="product-row">
+            <span class="price">CHF 54.—</span>
+            <a href="shop.html" class="add-link" aria-label="Discover Glowbar Collagen Cream">+</a>
+          </div>
+        </article>
+        <article class="eshop-card">
+          <div class="eshop-card-media">
+            <img src="assets/product-tools-set.jpg" alt="Roller quartz rose, gua sha miroir et bandeau Glowbar" loading="lazy" decoding="async" width="800" height="800">
+          </div>
+          <span class="cat">Tools</span>
+          <h3>Mirror Gua Sha</h3>
+          <div class="product-row">
+            <span class="price">CHF 64.—</span>
+            <a href="shop.html" class="add-link" aria-label="Discover Mirror Gua Sha">+</a>
+          </div>
+        </article>
+        <article class="eshop-card">
+          <div class="eshop-card-media">
+            <img src="assets/product-smoothie-lineup.jpg" alt="Gamme de smoothies glow Glowbar" loading="lazy" decoding="async" width="800" height="447">
+          </div>
+          <span class="cat">Smoothies</span>
+          <h3>Smoothie Glow Berry</h3>
+          <div class="product-row">
+            <span class="price">CHF 12.—</span>
+            <a href="shop.html" class="add-link" aria-label="Discover Smoothie Glow Berry">+</a>
+          </div>
+        </article>
+      </div>
+      <div class="cta-row" style="justify-content:center;margin-top:44px;">
+        <a href="shop.html" class="btn btn-outline">View the full shop</a>
       </div>
     </div>
   </section>
 
-  <!-- VIDEO -->
-  <section class="section">
+  <section class="section" style="padding-top:50px;">
     <div class="container">
-      <div class="split reverse">
+      <div class="split">
         <div class="split-media">
-          <div class="video-frame">
+          <div class="video-feature">
             <video controls preload="none" poster="assets/campaign-smoothie-tote.jpg" playsinline aria-label="Glowbar — discover the ritual in motion">
               <source src="assets/video/glow-ritual-2.mp4" type="video/mp4">
             </video>
           </div>
         </div>
         <div class="split-copy">
-          <span class="eyebrow rv">A ritual, in motion</span>
-          <h2 data-split>See the <em>session</em> come to life.</h2>
-          <p class="lede rv" style="--d:.2s">One moment is enough to understand why our clients return — the gesture, the texture, the deliberate slowness. Watch, then come live it.</p>
-          <div class="cta-row rv" style="--d:.3s"><a href="#book" class="btn btn-outline magnetic">Join the opening list</a></div>
+          <span class="eyebrow">A ritual, in motion</span>
+          <h2>See the<br><em>session</em> come to life.</h2>
+          <p class="lede">One moment is enough to understand why our clients return — the gesture, the texture, the deliberate slowness. Watch, then come live it.</p>
+          <div class="cta-row"><a href="#book" class="btn btn-outline">Join the opening list</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
-  <section class="quote">
+  <section class="quote-section">
     <div class="container">
-      <img class="rv" src="assets/logos/monogram-taupe.png" alt="" width="900" height="542">
-      <blockquote data-split>I founded Glowbar to create the wellness destination I always wished existed.</blockquote>
-      <cite class="rv" style="--d:.3s"><b>Sabrina Dusi</b> — Founder, Glowbar, Geneva</cite>
+      <div class="quote-block">
+        <span class="script">Sabrina Dusi</span>
+        <blockquote>"I founded Glowbar to create the wellness destination I always wished existed — one where caring for yourself feels effortless, enjoyable, and genuinely effective."</blockquote>
+        <cite>Founder, Glowbar — Geneva</cite>
+      </div>
     </div>
   </section>
 
-  <!-- BOOK -->
-  <section class="section on-brown" id="book" style="padding-bottom:0">
+  <section class="section" id="book">
     <div class="container">
-      <div class="band rv">
-        <img class="bg-logo" src="assets/logos/monogram-pink.png" alt="" width="900" height="542">
-        <span class="eyebrow center">Coming soon · Geneva</span>
+      <div class="cta-band">
+        <span class="eyebrow">Coming soon · Geneva</span>
         <h2>Our boudoir <em>opens soon.</em></h2>
         <p>Booking opens shortly. Leave your email and be the first to reserve your session.</p>
         <div class="cta-row">
-          <a href="#newsletter" class="btn btn-light magnetic">Join the opening list</a>
-          <a href="#method" class="btn btn-ghost-light magnetic">Learn the ritual</a>
+          <a href="#newsletter" class="btn btn-light">Join the opening list</a>
+          <a href="#method" class="btn btn-ghost-dark">Learn the ritual</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
+  <section class="section" id="contact" style="padding-top:50px;">
     <div class="container">
       <div class="split">
         <div class="split-copy">
-          <span class="eyebrow rv">Get in touch</span>
-          <h2 data-split>Questions, requests or just to say <em>hello.</em></h2>
-          <p class="lede rv" style="--d:.2s; margin-bottom:34px">Write to us and a member of the Glowbar team will get back to you within one business day.</p>
-          <ul class="contact-list rv" style="--d:.3s">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Questions, requests<br>or just to say hello.</h2>
+          <p class="lede">Write to us and a member of the Glowbar team will get back to you within one business day.</p>
+          <ul>
             <li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li>
             <li>Geneva, Switzerland</li>
           </ul>
         </div>
-        <div class="rv" style="--d:.15s">
+        <div class="contact-form-wrap">
           <form class="contact-form" data-form>
             <label>Name<input type="text" name="name" autocomplete="name" required></label>
             <label>Email<input type="email" name="email" autocomplete="email" required></label>
             <label>Message<textarea name="message" rows="4" required></textarea></label>
-            <button type="submit" class="btn btn-primary magnetic">Send message</button>
+            <button type="submit" class="btn btn-primary">Send message</button>
           </form>
           <p class="form-note" hidden>Thank you — we'll be in touch within one business day.</p>
         </div>
@@ -313,12 +579,12 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/logos/wordmark-pink.png" alt="Glowbar" width="1400" height="439" loading="lazy">
+        <img class="brand-logo" src="assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377" loading="lazy">
         <p>An atelier for face pilates. Geneva, Switzerland.</p>
         <form class="newsletter-form" id="newsletter" data-form>
           <label class="sr-only" for="newsletter-email">Email address</label>
           <input type="email" id="newsletter-email" name="email" placeholder="Your email" autocomplete="email" required>
-          <button type="submit" class="btn btn-light btn-sm">Subscribe</button>
+          <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
         </form>
         <p class="form-note" hidden>You're on the list — welcome to the glow.</p>
       </div>
@@ -342,19 +608,21 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li>
-          <li><a href="#contact">Geneva, Switzerland</a></li>
+          <li><a href="#">Geneva, Switzerland</a></li>
           <li><a href="#">@glowbar</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Glowbar. All rights reserved.</span>
-      <div class="footer-social"><a href="#">Instagram</a><a href="#">TikTok</a></div>
+      <div class="footer-social">
+        <a href="#">Instagram</a><a href="#">TikTok</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="assets/lenis.min.js"></script>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
+<script src="motion.js" defer></script>
 </body>
 </html>

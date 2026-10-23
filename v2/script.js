@@ -1,13 +1,5 @@
 // Glowbar — shared interactions
 
-// Prevents mobile browsers from restoring/drifting scroll position on load
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
-}
-if (!location.hash) {
-  window.scrollTo(0, 0);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile nav toggle
@@ -42,19 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     revealEls.forEach(el => el.classList.add('in'));
   }
-
-  // Contact & newsletter forms (no backend wired up yet — shows a confirmation only)
-  document.querySelectorAll('form[data-form]').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const note = form.nextElementSibling;
-      form.reset();
-      form.hidden = true;
-      if (note && note.classList.contains('form-note')) {
-        note.hidden = false;
-      }
-    });
-  });
 
   // Shop filter pills
   const pills = document.querySelectorAll('.filter-pill');

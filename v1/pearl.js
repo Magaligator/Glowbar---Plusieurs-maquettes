@@ -76,14 +76,18 @@
   var U = {}; ['uRes','uT','uC','uR','uA','uB','uHold','uPulse','uWob','uM','uDark'].forEach(function(n){ U[n] = gl.getUniformLocation(prog, n); });
 
   var dpr = 1, W = 0, H = 0;
+  var coarse = window.matchMedia('(pointer: coarse)').matches;
   function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-    W = window.innerWidth; H = window.innerHeight;
+    // phones: the address bar shows/hides and fires resize events — keep the canvas as it is unless the width changes
+    if (coarse && W && window.innerWidth === W) return;
+    dpr = Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 1.75);
+    W = window.innerWidth;
+    H = coarse ? Math.max(window.innerHeight, window.screen.height || 0) : window.innerHeight;   // tall enough for the bar-less viewport
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
-  window.addEventListener('resize', resize); resize();
+  window.addEventListener('resize', resize); window.addEventListener('orientationchange', function(){ W = 0; resize(); }); resize();
 
   function hex(h){ h = h.replace('#', ''); return [parseInt(h.substr(0, 2), 16) / 255, parseInt(h.substr(2, 2), 16) / 255, parseInt(h.substr(4, 2), 16) / 255]; }
   var lerp = function(a, b, t){ return a + (b - a) * t; };
@@ -100,13 +104,13 @@
 
   function target(){
     for (var i = sections.length - 1; i >= 0; i--) {
-      var probe = H * parseFloat(sections[i].sec.dataset.probe || 0.5);   // the footer is read lower down the screen
+      var probe = window.innerHeight * parseFloat(sections[i].sec.dataset.probe || 0.5);   // the footer is read lower down the screen
       var rc = sections[i].sec.getBoundingClientRect();
       if (rc.top <= probe && rc.bottom > probe) { if (sections[i].anchor) current = sections[i]; break; }
     }
     if (!current) return null;
     var a = current.anchor, rect = a.getBoundingClientRect();
-    var vmin = Math.min(W, H) / 100, small = W < 800;
+    var vmin = Math.min(W, window.innerHeight) / 100, small = W < 800;
     var r = small ? (a.dataset.rm ? parseFloat(a.dataset.rm) : parseFloat(a.dataset.r || 12) * 0.78) : parseFloat(a.dataset.r || 12);
     return {
       x: rect.left, y: rect.top,
@@ -155,7 +159,7 @@
   function isOver(x, y){ return S.intro > 0.6 && dist(x, y) < S.r * 1.08; }
 
   window.addEventListener('pointermove', function(e){
-    mouse.x = (e.clientX / W - 0.5) * 2; mouse.y = (e.clientY / H - 0.5) * 2;
+    mouse.x = (e.clientX / W - 0.5) * 2; mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
   }, { passive: true });
   window.addEventListener('pointerdown', function(e){
     if (e.target.closest('a, button, input, textarea, .menu, .nav')) return;

@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glowbar — Home of Face Pilates | Geneva</title>
+<title>Glowbar — Maison de Face Pilates | Geneva</title>
 <meta name="description" content="Glowbar — Geneva's atelier of face pilates. An intimate ritual of movement, nourishment and grace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
     --ease: cubic-bezier(.16,.8,.3,1);
   }
   *,*::before,*::after{box-sizing:border-box;}
-  html{scroll-behavior:smooth;overflow-anchor:none;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;background:var(--cream);color:var(--ink);
     font-family:var(--font-body);font-weight:300;
@@ -68,23 +68,6 @@
   }
   .nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
   .nav-links a.active{color:var(--oxblood);}
-  .nav-right{display:flex;align-items:center;gap:18px;}
-  .nav-toggle{
-    display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;
-  }
-  .nav-toggle span{width:22px;height:1.5px;background:var(--oxblood);display:block;transition:transform .3s var(--ease),opacity .3s var(--ease);}
-  .nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
-  .nav-toggle.open span:nth-child(2){opacity:0;}
-  .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
-  .mobile-panel{
-    display:none;flex-direction:column;border-top:1px solid var(--mauve);background:var(--cream);
-  }
-  .mobile-panel.open{display:flex;}
-  .mobile-panel a{
-    padding:16px clamp(20px,5vw,64px);border-bottom:1px solid var(--mauve);
-    font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink);
-  }
-  .mobile-panel a.active{color:var(--oxblood);}
   .btn{
     display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
     padding:13px 30px;border-radius:2px;transition:all .3s var(--ease);
@@ -98,25 +81,7 @@
   /* HERO */
   .hero{padding:70px 0 110px;position:relative;}
   .hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center;}
-  .display{font-size:clamp(42px,5.2vw,68px);line-height:1.08;margin:0 0 26px;font-weight:340;}
-  .hero-stats .display{max-width:780px;}
-  .stats-row{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;
-  }
-  .stat-block{
-    padding:0 36px;border-left:1px solid var(--mauve);
-  }
-  .stat-block:first-child{padding-left:0;border-left:none;}
-  .stat-number{
-    display:block;font-family:var(--font-display);font-style:italic;font-weight:340;
-    font-size:clamp(40px,5vw,62px);color:var(--oxblood);line-height:1;margin-bottom:18px;
-  }
-  .stat-block p{color:var(--taupe);font-size:15px;line-height:1.6;margin:0;}
-  @media (max-width:900px){
-    .stats-row{grid-template-columns:1fr;gap:36px;}
-    .stat-block{padding-left:0;border-left:none;padding-top:28px;border-top:1px solid var(--mauve);}
-    .stat-block:first-child{padding-top:0;border-top:none;}
-  }
+  h1.display{font-size:clamp(42px,5.2vw,68px);line-height:1.08;margin:0 0 26px;font-weight:340;}
   .lede{font-size:18px;color:var(--taupe);max-width:420px;margin-bottom:38px;font-weight:300;}
   .cta-row{display:flex;gap:16px;flex-wrap:wrap;}
   .hero-media{position:relative;}
@@ -157,12 +122,9 @@
 
   /* SPLIT */
   .split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
-  .split.split-wide{grid-template-columns:1.3fr .95fr;align-items:stretch;}
-  .split.split-wide .split-media{height:100%;}
-  .split.split-wide .split-media img{height:100%;object-fit:cover;}
   .split-media{padding:14px;background:var(--white);box-shadow:0 30px 60px -25px rgba(74,33,28,.22);}
   .split-media img{aspect-ratio:5/6;object-fit:cover;}
-  .split-copy h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin-bottom:20px;font-weight:340;}
+  .split-copy h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:20px;font-weight:340;}
   .split-copy .lede{margin-bottom:24px;}
   .split-copy ul{list-style:none;margin:0 0 32px;padding:0;}
   .split-copy li{
@@ -245,101 +207,26 @@
   }
   .footer-social{display:flex;gap:22px;}
   .footer-social a:hover{color:var(--pink-deep);}
-
-  /* FORMS */
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-  .contact-form-wrap{background:var(--white);padding:40px;box-shadow:0 30px 60px -25px rgba(74,33,28,.22);}
-  .contact-form{display:flex;flex-direction:column;gap:20px;}
-  .contact-form label{
-    display:flex;flex-direction:column;gap:8px;
-    font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mauve-deep);font-weight:500;
-  }
-  .contact-form input,.contact-form textarea{
-    font-family:var(--font-body);font-size:15px;color:var(--ink);font-weight:400;
-    background:var(--cream);border:1px solid var(--mauve);border-radius:2px;
-    padding:12px 14px;resize:vertical;
-  }
-  .contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--oxblood);}
-  .contact-form button{align-self:flex-start;}
-  .form-note{color:var(--oxblood);font-size:14px;margin-top:16px;}
-  .newsletter-form{display:flex;gap:8px;margin:20px 0 6px;max-width:320px;}
-  .newsletter-form input{
-    flex:1;min-width:0;font-family:var(--font-body);font-size:14px;color:var(--ink);
-    background:var(--cream);border:1px solid var(--mauve);border-radius:2px;padding:10px 12px;
-  }
-  .newsletter-form input:focus{outline:none;border-color:var(--oxblood);}
-  .footer-brand .form-note{font-size:13px;max-width:240px;}
   .banner{
-    background:var(--oxblood);color:var(--blush);padding:9px 0;
+    background:var(--oxblood);color:var(--blush);text-align:center;padding:9px;
     font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-    overflow:hidden;white-space:nowrap;
-  }
-  .banner .marquee{
-    display:inline-flex;width:max-content;
-    animation:marquee-scroll 24s linear infinite;
-  }
-  .banner .marquee span{padding:0 36px;}
-  @keyframes marquee-scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .banner .marquee{animation:none;}
   }
 
   @media (max-width:900px){
-    .hero-grid, .split, .split.split-wide, .footer-top{grid-template-columns:1fr;gap:50px;}
-    .split.split-wide .split-media{height:auto;}
-    .split.split-wide .split-media img{height:auto;aspect-ratio:16/9;}
+    .hero-grid, .split, .footer-top{grid-template-columns:1fr;gap:50px;}
     .pillars{grid-template-columns:1fr;gap:60px;}
     .nav-links{display:none;}
-    .nav-toggle{display:inline-flex;}
     .hero-media .corner{position:static;margin-top:18px;max-width:none;}
-
-    /* homogeneous mobile spacing rhythm */
-    .hero{padding:48px 0 56px;}
-    .section{padding:64px 0;}
-    .statement{padding:56px 0;}
-    .quote-section{padding:64px 0;}
-    .cta-band{padding:64px 0;}
-    footer{padding:56px 0 24px;}
-    .footer-top{gap:40px;padding-bottom:36px;}
-    .contact-form-wrap{padding:28px;}
-    .stats-row{margin-top:40px;}
-  }
-
-  .nav-logo{display:inline-flex;align-items:center;}
-  .nav-logo img{height:34px;width:auto;display:block;}
-  .footer-brand .brand-logo{height:44px;width:auto;margin-bottom:12px;}
-  .product-card.soon .brand-logo{height:46px;width:auto;}
-
-  /* hero: silhouette cut out of its white backdrop (client feedback) */
-  .hero-media .frame{padding:0;background:none;box-shadow:none;display:flex;justify-content:center;}
-  .hero-media .frame::before{
-    content:"";position:absolute;left:50%;top:50%;width:min(88%,460px);aspect-ratio:1;
-    transform:translate(-50%,-52%);border-radius:50%;
-    background:radial-gradient(circle at 35% 30%,var(--blush),var(--pink) 130%);opacity:.55;
-  }
-  .hero-media .frame img{
-    position:relative;width:auto;max-width:100%;max-height:640px;aspect-ratio:auto;object-fit:contain;
-    -webkit-mask-image:linear-gradient(to bottom,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,#000 86%,transparent 100%);
   }
 </style>
 </head>
 <body>
 
-<div class="banner">
-  <div class="marquee" aria-hidden="false">
-    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
-    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
-    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
-    <span>Alternate concept — chic &amp; refined direction, Glowbar palette</span>
-  </div>
-</div>
+<div class="banner">Alternate concept — chic &amp; refined direction, Glowbar palette</div>
 
 <header>
   <nav class="nav">
-    <a href="#" class="nav-logo"><img src="assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></a>
+    <a href="#" class="nav-logo">Glowbar</a>
     <div class="nav-links">
       <a href="#" class="active">Home</a>
       <a href="#method">The Method</a>
@@ -347,21 +234,8 @@
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="nav-right">
-      <a href="#book" class="btn btn-primary btn-sm">Opening soon</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a href="#book" class="btn btn-primary btn-sm">Opening soon</a>
   </nav>
-  <div class="mobile-panel">
-    <a href="#" class="active">Home</a>
-    <a href="#method">The Method</a>
-    <a href="shop.html">Shop</a>
-    <a href="#studio">Studio</a>
-    <a href="#contact">Contact</a>
-    <a href="#book">Opening soon</a>
-  </div>
 </header>
 
 <main>
@@ -379,35 +253,20 @@
       </div>
       <div class="hero-media">
         <div class="frame">
-          <img src="assets/campaign-dumbbells-cutout.png" alt="Glowbar client holding pink sculpting weights" width="555" height="716" loading="eager" fetchpriority="high" decoding="async">
+          <img src="assets/campaign-dumbbells.jpg" alt="Glowbar client holding pink sculpting weights" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div class="corner">"Care, elevated to a ritual." — the Glowbar promise</div>
       </div>
     </div>
   </section>
 
-  <section class="hero hero-stats">
+  <div class="statement">
     <div class="container">
-      <span class="eyebrow">Why the face deserves a workout</span>
-      <h2 class="display">Beauty has evolved<br>everywhere except the face.</h2>
-      <div class="stats-row">
-        <div class="stat-block">
-          <span class="stat-number">90%</span>
-          <p>of beauty products only treat the surface layer of the skin.</p>
-        </div>
-        <div class="stat-block">
-          <span class="stat-number">40+</span>
-          <p>facial muscles responsible for lift and tone remain untrained by any dedicated method — until now.</p>
-        </div>
-        <div class="stat-block">
-          <span class="stat-number">80%</span>
-          <p>of visible aging is driven by tension and circulation, not the skin's surface alone.</p>
-        </div>
-      </div>
+      <p>Beauty, we believe, is not applied — <em>it is trained, nourished and tended to,</em> one gentle movement at a time.</p>
     </div>
-  </section>
+  </div>
 
-<section class="section" id="method">
+  <section class="section" id="method">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow center">The Glowbar Ritual</span>
@@ -424,7 +283,7 @@
           <div class="pillar-media"><img src="assets/smoothie-pour.jpg" alt="A Glowbar smoothie being poured" loading="lazy" decoding="async"></div>
           <span class="roman">II.</span>
           <h3>The wellness bar</h3>
-          <p>Glow-optimised blends, poured to nourish your radiance from within, after every session.</p>
+          <p>Glow-optimised blends, poured to nourish your radiance from within, after every séance.</p>
         </article>
         <article class="pillar">
           <div class="pillar-media"><img src="assets/studio-interior.jpg" alt="Glowbar studio interior" loading="lazy" decoding="async"></div>
@@ -436,17 +295,17 @@
     </div>
   </section>
 
-  <section class="section" id="studio" style="padding-top:50px;">
+  <section class="section" id="studio" style="padding-top:0;">
     <div class="container">
-      <div class="split split-wide">
-        <div class="split-media"><img src="assets/wellness-counter.jpg" alt="Glowbar wellness bar counter with neon signage, smoothies and fresh ingredients" loading="lazy" decoding="async"></div>
+      <div class="split">
+        <div class="split-media"><img src="assets/studio-interior.jpg" alt="Glowbar studio with treatment chairs" loading="lazy" decoding="async"></div>
         <div class="split-copy">
           <span class="eyebrow">Step inside</span>
           <h2>A studio dressed<br>like a boudoir.</h2>
           <p class="lede">Soft light, warm blush tones and heated treatment chairs — every detail composed for a moment of quiet indulgence.</p>
           <ul>
             <li>Private treatment chairs, heated &amp; upholstered</li>
-            <li>A dedicated bar for pre &amp; post-session blends</li>
+            <li>A dedicated bar for pre &amp; post-séance blends</li>
             <li>Intimate class sizes, led by our master practitioners</li>
           </ul>
           <div class="cta-row"><a href="#book" class="btn btn-primary">Join the opening list</a></div>
@@ -455,7 +314,7 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:50px;">
+  <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow center">Shop the edit</span>
@@ -467,22 +326,22 @@
             <span class="eshop-card-tag">Best-seller</span>
             <img src="assets/product-collagen-cream.jpg" alt="Glowbar Collagen Cream" loading="lazy" decoding="async" width="800" height="946">
           </div>
-          <span class="cat">Skincare</span>
+          <span class="cat">Soins</span>
           <h3>Glowbar Collagen Cream</h3>
           <div class="product-row">
             <span class="price">CHF 54.—</span>
-            <a href="shop.html" class="add-link" aria-label="Discover Glowbar Collagen Cream">+</a>
+            <a href="shop.html" class="add-link" aria-label="Découvrir Glowbar Collagen Cream">+</a>
           </div>
         </article>
         <article class="eshop-card">
           <div class="eshop-card-media">
             <img src="assets/product-tools-set.jpg" alt="Roller quartz rose, gua sha miroir et bandeau Glowbar" loading="lazy" decoding="async" width="800" height="800">
           </div>
-          <span class="cat">Tools</span>
+          <span class="cat">Outils</span>
           <h3>Mirror Gua Sha</h3>
           <div class="product-row">
             <span class="price">CHF 64.—</span>
-            <a href="shop.html" class="add-link" aria-label="Discover Mirror Gua Sha">+</a>
+            <a href="shop.html" class="add-link" aria-label="Découvrir Mirror Gua Sha">+</a>
           </div>
         </article>
         <article class="eshop-card">
@@ -493,31 +352,31 @@
           <h3>Smoothie Glow Berry</h3>
           <div class="product-row">
             <span class="price">CHF 12.—</span>
-            <a href="shop.html" class="add-link" aria-label="Discover Smoothie Glow Berry">+</a>
+            <a href="shop.html" class="add-link" aria-label="Découvrir Smoothie Glow Berry">+</a>
           </div>
         </article>
       </div>
       <div class="cta-row" style="justify-content:center;margin-top:44px;">
-        <a href="shop.html" class="btn btn-outline">View the full shop</a>
+        <a href="shop.html" class="btn btn-outline">Voir toute la boutique</a>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:50px;">
+  <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="split">
         <div class="split-media">
           <div class="video-feature">
-            <video controls preload="none" poster="assets/campaign-smoothie-tote.jpg" playsinline aria-label="Glowbar — discover the ritual in motion">
-              <source src="assets/video/glow-ritual-2.mp4" type="video/mp4">
+            <video controls preload="none" poster="assets/video-poster-2.jpg" playsinline aria-label="Glowbar — découvrez le rituel en mouvement">
+              <source src="assets/video/glow-ritual-com.mp4" type="video/mp4">
             </video>
           </div>
         </div>
         <div class="split-copy">
-          <span class="eyebrow">A ritual, in motion</span>
-          <h2>See the<br><em>session</em> come to life.</h2>
-          <p class="lede">One moment is enough to understand why our clients return — the gesture, the texture, the deliberate slowness. Watch, then come live it.</p>
-          <div class="cta-row"><a href="#book" class="btn btn-outline">Join the opening list</a></div>
+          <span class="eyebrow">Un rituel, en mouvement</span>
+          <h2>Voyez la<br><em>séance</em> prendre vie.</h2>
+          <p class="lede">Un instant suffit à comprendre pourquoi nos clientes reviennent — le geste, la texture, la lenteur assumée. Regardez, puis venez le vivre.</p>
+          <div class="cta-row"><a href="#book" class="btn btn-outline">Réserver ma séance</a></div>
         </div>
       </div>
     </div>
@@ -547,45 +406,14 @@
     </div>
   </section>
 
-  <section class="section" id="contact" style="padding-top:50px;">
-    <div class="container">
-      <div class="split">
-        <div class="split-copy">
-          <span class="eyebrow">Get in touch</span>
-          <h2>Questions, requests<br>or just to say hello.</h2>
-          <p class="lede">Write to us and a member of the Glowbar team will get back to you within one business day.</p>
-          <ul>
-            <li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li>
-            <li>Geneva, Switzerland</li>
-          </ul>
-        </div>
-        <div class="contact-form-wrap">
-          <form class="contact-form" data-form>
-            <label>Name<input type="text" name="name" autocomplete="name" required></label>
-            <label>Email<input type="email" name="email" autocomplete="email" required></label>
-            <label>Message<textarea name="message" rows="4" required></textarea></label>
-            <button type="submit" class="btn btn-primary">Send message</button>
-          </form>
-          <p class="form-note" hidden>Thank you — we'll be in touch within one business day.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<footer>
+<footer id="contact">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img class="brand-logo" src="assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377" loading="lazy">
+        <span class="script">Glowbar</span>
         <p>An atelier for face pilates. Geneva, Switzerland.</p>
-        <form class="newsletter-form" id="newsletter" data-form>
-          <label class="sr-only" for="newsletter-email">Email address</label>
-          <input type="email" id="newsletter-email" name="email" placeholder="Your email" autocomplete="email" required>
-          <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
-        </form>
-        <p class="form-note" hidden>You're on the list — welcome to the glow.</p>
       </div>
       <div class="footer-col">
         <h4>Studio</h4>
@@ -615,12 +443,11 @@
     <div class="footer-bottom">
       <span>© 2026 Glowbar. All rights reserved.</span>
       <div class="footer-social">
-        <a href="#">Instagram</a><a href="#">TikTok</a>
+        <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Newsletter</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
 </body>
 </html>

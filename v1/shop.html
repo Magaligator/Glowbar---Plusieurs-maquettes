@@ -3,264 +3,142 @@
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Shop — Glowbar | Tools, Apparel &amp; Wellness Bar</title>
 <meta name="description" content="Shop Glowbar's sculpting tools, studio apparel and wellness bar blends — bring the face pilates ritual home with you.">
+<meta name="theme-color" content="#F7F1EA">
+<link rel="icon" href="assets/logos/monogram-taupe.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,340;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+  try{ if(sessionStorage.getItem('glowbar-v4-seen')) document.documentElement.classList.add('seen'); }catch(e){}
+</script>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-theme="light">
 
-<header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">Glowbar</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#method">The Method</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="index.html#studio">Studio</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-    <div class="nav-right">
-      <a href="index.html#book" class="btn btn-primary btn-sm">Opening soon</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="mobile-panel">
-    <a href="index.html">Home</a>
-    <a href="index.html#method">The Method</a>
-    <a href="shop.html">Shop</a>
-    <a href="index.html#studio">Studio</a>
-    <a href="index.html#book">Opening soon</a>
+<div class="loader" aria-hidden="true">
+  <div class="lp"></div>
+  <div class="loader-word"><span>Breathe in</span><span>Lift</span><span>Glow</span></div>
+  <span class="loader-count mono">00</span>
+</div>
+<div class="cursor" aria-hidden="true"></div>
+<canvas id="pearl" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a href="index.html" class="brand" aria-label="Glowbar — home">
+    <img class="logo-light" src="assets/logos/wordmark-taupe.png" alt="Glowbar" width="1400" height="439">
+    <img class="logo-dark" src="assets/logos/wordmark-pink.png" alt="" width="1400" height="439">
+  </a>
+  <div class="nav-right">
+    <button class="sound mono" aria-pressed="false" aria-label="Toggle sound"><i></i><span>Sound off</span></button>
+    <a href="index.html#book" class="btn btn-sm" data-magnetic>Opening soon</a>
+    <button class="menu-btn mono" aria-expanded="false" aria-controls="menu"><span>Menu</span><i></i></button>
   </div>
 </header>
 
+<nav class="menu" id="menu" aria-label="Main">
+  <ol>
+    <li><a href="index.html#ritual"><small>01</small>The ritual</a></li>
+    <li><a href="index.html#studio"><small>02</small>The studio</a></li>
+    <li><a href="shop.html"><small>03</small>The shop</a></li>
+    <li><a href="index.html#book"><small>04</small>Opening soon</a></li>
+  </ol>
+  <div class="menu-foot mono"><span>Geneva, Switzerland</span><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></div>
+</nav>
+
+
 <main>
 
-  <!-- HERO -->
-  <section class="hero" style="padding-bottom:0;">
-    <div class="container">
-      <div class="reveal in" style="max-width:640px;">
-        <span class="eyebrow">Shop Glowbar</span>
-        <h1 style="font-size:clamp(2.4rem,5.5vw,4rem); margin-top:14px;">Bring the studio <em style="font-style:italic;">home.</em></h1>
-        <p class="lede" style="max-width:52ch; margin-top:18px; font-size:1.15rem;">Sculpting tools, studio apparel and wellness bar blends — designed to extend the ritual well past your session.</p>
-      </div>
+  <section class="page-hero" data-sec data-theme="light">
+    <i class="anchor" data-pearl data-r="16" data-rm="22" data-a="#F5C4DC" data-b="#E48FB9" style="left:78%;top:44%"></i>
+    <span class="mono rv" style="color:var(--muted);margin-bottom:22px">The shop</span>
+    <h1 data-split>Bring the studio <em>home.</em></h1>
+    <p class="rv" style="--d:.3s">Sculpting tools, studio apparel and wellness bar blends — to extend the ritual well past your session.</p>
+  </section>
+
+  <section class="shop" data-sec data-theme="blush" style="padding-top:clamp(50px,8vh,100px)">
+    <i class="anchor" data-pearl data-r="9" data-a="#F7CADB" data-b="#E58BA9" style="left:96%;top:6%"></i>
+    <div class="filters rv">
+      <button class="pill active" data-filter="all">All</button>
+      <button class="pill" data-filter="tools">Studio tools</button>
+      <button class="pill" data-filter="apparel">Apparel</button>
+      <button class="pill" data-filter="bar">Wellness bar</button>
+      <button class="pill" data-filter="skincare">Skincare</button>
+    </div>
+    <div class="grid">
+      <article class="p rv" data-category="tools" style="--d:0s">
+        <div class="p-media"><span class="p-tag">Bestseller</span><img src="assets/treatment-ball.jpg" alt="Glowbar sculpting ball facial massage tool" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
+        <div class="p-body"><div><span class="cat mono">Studio tools</span><h3>The Sculpting Ball</h3><span class="price">CHF 58</span></div><button class="add" aria-label="Add The Sculpting Ball to bag">+</button></div>
+      </article>
+      <article class="p rv" data-category="tools" style="--d:0.08s">
+        <div class="p-media"><img src="assets/product-tools-set.jpg" alt="Glowbar mirror-polished steel gua sha" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div><span class="cat mono">Studio tools</span><h3>Mirror Gua Sha</h3><span class="price">CHF 64</span></div><button class="add" aria-label="Add Mirror Gua Sha to bag">+</button></div>
+      </article>
+      <article class="p rv" data-category="apparel" style="--d:0.16s">
+        <div class="p-media"><img src="assets/apparel-cami.jpg" alt="Glowbar branded loungewear cami top" loading="lazy" decoding="async" style="object-position:50% 0%"></div>
+        <div class="p-body"><div><span class="cat mono">Apparel</span><h3>The Glow Cami</h3><span class="price">CHF 72</span></div><button class="add" aria-label="Add The Glow Cami to bag">+</button></div>
+      </article>
+      <article class="p rv" data-category="apparel" style="--d:0.24s">
+        <div class="p-media"><img src="assets/campaign-dumbbells.jpg" alt="Glowbar face pilates set" loading="lazy" decoding="async" style="object-position:50% 0%"></div>
+        <div class="p-body"><div><span class="cat mono">Apparel</span><h3>Face Pilates Set</h3><span class="price">CHF 149</span></div><button class="add" aria-label="Add Face Pilates Set to bag">+</button></div>
+      </article>
+      <article class="p rv" data-category="bar" style="--d:0.32s">
+        <div class="p-media"><img src="assets/smoothie-pour.jpg" alt="Glowbar glow smoothie in a branded cup" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div><span class="cat mono">Wellness bar</span><h3>Glow Smoothie Blend</h3><span class="price">CHF 12</span></div><button class="add" aria-label="Add Glow Smoothie Blend to bag">+</button></div>
+      </article>
+      <article class="p rv" data-category="tools" style="--d:0.4s">
+        <div class="p-media"><img src="assets/tools-flatlay.jpg" alt="Glowbar signature terry headband" loading="lazy" decoding="async" style="object-position:20% 82%"></div>
+        <div class="p-body"><div><span class="cat mono">Studio tools</span><h3>Signature Headband</h3><span class="price">CHF 28</span></div><button class="add" aria-label="Add Signature Headband to bag">+</button></div>
+      </article>
+      <article class="p soon rv" data-category="skincare" style="--d:0.48s">
+        <div class="p-media"><img src="assets/logos/monogram-taupe.png" alt="Glowbar" width="900" height="542" loading="lazy"></div>
+        <div class="p-body"><div><span class="cat mono">Skincare · Coming soon</span><h3>Rose Glow Mask &amp; Peony Oil</h3><span class="price">Notify me</span></div><button class="add" aria-label="Get notified about Rose Glow Mask &amp; Peony Oil">+</button></div>
+      </article>
+      <article class="p soon rv" data-category="apparel" style="--d:0.56s">
+        <div class="p-media"><img src="assets/logos/monogram-taupe.png" alt="Glowbar" width="900" height="542" loading="lazy"></div>
+        <div class="p-body"><div><span class="cat mono">Apparel · Coming soon</span><h3>Canvas Studio Tote</h3><span class="price">Notify me</span></div><button class="add" aria-label="Get notified about Canvas Studio Tote">+</button></div>
+      </article>
     </div>
   </section>
 
-  <section class="section-tight">
-    <div class="container">
-      <div class="split-media reveal" style="aspect-ratio:21/9;">
-        <img src="assets/tools-flatlay.jpg" alt="Glowbar signature headband, gua sha tool and sculpting ball" style="object-position:center 30%;" loading="eager" fetchpriority="high" decoding="async">
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT GRID -->
-  <section id="shop">
-    <div class="container">
-
-      <div class="filters reveal">
-        <button class="filter-pill active" data-filter="all">All</button>
-        <button class="filter-pill" data-filter="tools">Studio Tools</button>
-        <button class="filter-pill" data-filter="apparel">Apparel</button>
-        <button class="filter-pill" data-filter="bar">Wellness Bar</button>
-        <button class="filter-pill" data-filter="skincare">Skincare</button>
-      </div>
-
-      <div class="product-grid">
-
-        <article class="product-card reveal" data-category="tools">
-          <div class="product-media">
-            <span class="product-tag">Bestseller</span>
-            <img src="assets/treatment-ball.jpg" alt="Glowbar sculpting ball facial massage tool" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Studio Tools</span>
-            <h3>The Sculpting Ball</h3>
-            <div class="product-row">
-              <span class="price">CHF 58</span>
-              <button class="icon-btn" aria-label="Add the Sculpting Ball to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="tools" style="transition-delay:.05s">
-          <div class="product-media">
-            <img src="assets/tools-flatlay.jpg" alt="Glowbar mirror-polished steel gua sha tool" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Studio Tools</span>
-            <h3>Mirror Gua Sha</h3>
-            <div class="product-row">
-              <span class="price">CHF 64</span>
-              <button class="icon-btn" aria-label="Add the Mirror Gua Sha to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="apparel" style="transition-delay:.1s">
-          <div class="product-media">
-            <img src="assets/apparel-cami.jpg" alt="Glowbar branded loungewear cami top" style="object-position: top;" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Apparel</span>
-            <h3>The Glow Cami</h3>
-            <div class="product-row">
-              <span class="price">CHF 72</span>
-              <button class="icon-btn" aria-label="Add the Glow Cami to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="apparel" style="transition-delay:.15s">
-          <div class="product-media">
-            <img src="assets/campaign-dumbbells.jpg" alt="Glowbar face pilates set with recovery patches" style="object-position:top;" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Apparel</span>
-            <h3>Face Pilates Set</h3>
-            <div class="product-row">
-              <span class="price">CHF 149</span>
-              <button class="icon-btn" aria-label="Add the Face Pilates Set to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="bar" style="transition-delay:.2s">
-          <div class="product-media">
-            <img src="assets/smoothie-pour.jpg" alt="Glowbar glow smoothie in a branded cup" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Wellness Bar</span>
-            <h3>Glow Smoothie Blend</h3>
-            <div class="product-row">
-              <span class="price">CHF 12</span>
-              <button class="icon-btn" aria-label="Add the Glow Smoothie Blend to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card reveal" data-category="tools" style="transition-delay:.25s">
-          <div class="product-media">
-            <img src="assets/tools-flatlay.jpg" alt="Glowbar signature terry headband" style="object-position: left;" loading="lazy" decoding="async">
-          </div>
-          <div class="product-body">
-            <span class="cat">Studio Tools</span>
-            <h3>Signature Headband</h3>
-            <div class="product-row">
-              <span class="price">CHF 28</span>
-              <button class="icon-btn" aria-label="Add the Signature Headband to bag">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card soon reveal" data-category="skincare" style="transition-delay:.3s">
-          <div class="product-media"><span class="script">Glowbar</span></div>
-          <div class="product-body">
-            <span class="cat">Skincare — Coming Soon</span>
-            <h3>Rose Glow Mask &amp; Peony Oil</h3>
-            <div class="product-row">
-              <span class="price">Notify me</span>
-              <button class="icon-btn" aria-label="Get notified about the skincare line">+</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card soon reveal" data-category="apparel" style="transition-delay:.35s">
-          <div class="product-media"><span class="script">Glowbar</span></div>
-          <div class="product-body">
-            <span class="cat">Apparel — Coming Soon</span>
-            <h3>Canvas Studio Tote</h3>
-            <div class="product-row">
-              <span class="price">Notify me</span>
-              <button class="icon-btn" aria-label="Get notified about the canvas tote">+</button>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WELLNESS BAR FEATURE -->
-  <section style="background:var(--cream-deep)">
-    <div class="container">
-      <div class="split reverse">
-        <div class="split-media reveal">
-          <img src="assets/wellness-bar.jpg" alt="Glowbar wellness bar with blenders, fresh fruit and smoothies" loading="lazy" decoding="async">
-        </div>
-        <div class="split-copy reveal" style="transition-delay:.1s">
-          <span class="eyebrow">From the wellness bar</span>
-          <h2>Glow, blended fresh daily.</h2>
-          <p class="lede">Every blend is formulated to nourish the skin internally and extend your post-session radiance — functional, nutritious, and made to order at the bar.</p>
-          <div class="cta-row"><a href="index.html#book" class="btn btn-primary">Studio opening soon</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="book">
-    <div class="container">
-      <div class="cta-band reveal">
-        <span class="eyebrow" style="color:var(--pink)">New in</span>
-        <h2>The full skincare line<br>launches soon.</h2>
-        <p>Join the list to be the first to shop Glowbar's rose glow mask, peony oil and more.</p>
-        <div class="cta-row">
-          <a href="#" class="btn btn-light">Join the waitlist</a>
-        </div>
-      </div>
+  <section class="final" id="book" data-sec data-theme="dark">
+    <i class="anchor" data-pearl data-r="46" data-rm="52" data-a="#F3BCD6" data-b="#B14E7F" style="left:50%;top:112%"></i>
+    <span class="mono rv" style="margin-bottom:30px;color:var(--muted)">New in</span>
+    <h2 data-split style="font-size:clamp(48px,7.5vw,128px);max-width:12ch">The skincare line <em>launches</em> soon.</h2>
+    <p class="rv" style="--d:.2s">Join the list to be the first to shop the rose glow mask and peony oil.</p>
+    <div class="cta rv" style="--d:.3s">
+      <a href="#" class="btn" data-magnetic>Join the waitlist</a>
+      <a href="index.html#book" class="btn btn-ghost" data-magnetic>Studio opening soon</a>
     </div>
   </section>
 
 </main>
 
-<footer id="contact">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="script">Glowbar</span>
-        <p>An atelier for face pilates. Geneva, Switzerland.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Studio</h4>
-        <ul>
-          <li><a href="index.html#method">The ritual</a></li>
-          <li><a href="index.html#studio">Visit us</a></li>
-          <li><a href="index.html#book">Opening soon</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="shop.html">Tools</a></li>
-          <li><a href="shop.html">Apparel</a></li>
-          <li><a href="shop.html">Wellness bar</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li>
-          <li><a href="#">Geneva, Switzerland</a></li>
-          <li><a href="#">@glowbar</a></li>
-        </ul>
-      </div>
+<footer data-sec data-theme="dark" data-probe=".8">
+  <i class="anchor" data-pearl data-r="0" data-a="#F3BCD6" data-b="#B14E7F" style="left:50%;top:0"></i>
+  <div class="foot-top">
+    <div>
+      <img src="assets/logos/wordmark-pink.png" alt="Glowbar" width="1400" height="439" loading="lazy">
+      <p>An atelier for face pilates. Geneva, Switzerland.</p>
+      <form class="nl" id="newsletter" data-form>
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input type="email" id="nl-email" placeholder="Your email" autocomplete="email" required>
+        <button type="submit" class="btn btn-sm" data-magnetic>Subscribe</button>
+      </form>
+      <p class="form-note" hidden>You're on the list — welcome to the glow.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Glowbar. All rights reserved.</span>
-      <div class="footer-social">
-        <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Newsletter</a>
-      </div>
-    </div>
+    <div class="foot-col"><h4>Studio</h4><ul><li><a href="index.html#ritual">The ritual</a></li><li><a href="index.html#studio">Visit us</a></li><li><a href="index.html#book">Opening soon</a></li></ul></div>
+    <div class="foot-col"><h4>Shop</h4><ul><li><a href="shop.html">Tools</a></li><li><a href="shop.html">Apparel</a></li><li><a href="shop.html">Wellness bar</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4><ul><li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li><li><a href="index.html#book">Geneva, Switzerland</a></li><li><a href="#">@glowbar</a></li></ul></div>
   </div>
+  <div class="foot-bottom"><span>© 2026 Glowbar. All rights reserved.</span><span>Instagram · TikTok</span></div>
 </footer>
 
-<script src="script.js" defer></script>
+<script src="assets/lenis.min.js"></script>
+<script src="pearl.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

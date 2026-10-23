@@ -7,14 +7,14 @@
 <title>Glowbar — Versions du site</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;1,9..144,340&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wghtv0,9..144,340;1,9..144,340&family=Inter:wghtv300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FBF5F0; --card:#FFFFFF; --ink:#241C1A; --oxblood:#4A211C; --taupe:#7E6D6A;
     --mauve:#C7ACA6; --pink:#E895BB; --blush:#FBE3EA;
   }
   :root:not([data-theme="light"]){}
-  @media (prefers-color-scheme: dark){
+  vmedia (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){ --bg:#1E1615; --card:#2A201E; --ink:#F5ECE8; --oxblood:#F5ECE8; --taupe:#BBA9A5; --mauve:#4A3A37; --blush:#3A2A2E; }
   }
   *{box-sizing:border-box}
@@ -41,7 +41,7 @@
   .btn:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
   .chosen{display:inline-block;background:var(--pink);color:#fff;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:999px;font-weight:600;align-self:flex-start}
   .card.featured{grid-column:1/-1}
-  @media(min-width:860px){
+  vmedia(min-width:860px){
     .card.featured{display:grid;grid-template-columns:1.35fr 1fr}
     .card.featured .thumb{aspect-ratio:auto;min-height:420px;border-bottom:0;border-right:1px solid var(--mauve)}
     .card.featured h2{font-size:34px}
@@ -52,7 +52,7 @@
 </head>
 <body>
 <header class="wrap">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="v2/assets/logo-glowbar-light.png"><img src="v2/assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="v3/assets/logo-glowbar-light.png"><img src="v3/assets/logo-glowbar.png" alt="Glowbar" width="1200" height="377"></picture>
   <h1>Les quatre versions du <em>site</em></h1>
   <p>Cliquez sur une version pour l’ouvrir. Chaque version a sa page d’accueil et sa boutique.</p>
 </header>
@@ -60,10 +60,10 @@
 <main class="wrap">
   <div class="grid">
     <article class="card featured">
-      <div class="thumb"><iframe src="v4/index.html" title="Aperçu version 4" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="thumb"><iframe src="v1/index.html" title="Aperçu version 1" loading="lazy" tabindex="-1"></iframe></div>
       <div class="body">
         <span class="chosen">Version 3D · coup de cœur</span>
-        <span class="tag">Version 4 — « Perle »</span>
+        <span class="tag">Version 1 — « Perle »</span>
         <h2>Récit au scroll autour d’une perle 3D</h2>
         <p>Une perle irisée en WebGL traverse la page et change de couleur à chaque chapitre.</p>
         <ul>
@@ -71,19 +71,6 @@
           <li>Geste caché : maintenir la perle pour la faire briller</li>
           <li>Points cliquables sur les produits, son en option, chargement narratif</li>
         </ul>
-        <div class="links">
-          <a class="btn primary" href="v4/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
-          <a class="btn" href="v4/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="thumb"><iframe src="v1/index.html" title="Aperçu version 1" loading="lazy" tabindex="-1"></iframe></div>
-      <div class="body">
-        <span class="tag">Version 1</span>
-        <h2>« An atelier for your face »</h2>
-        <p>Direction chic et épurée, palette brun et rose, phrase d’accroche en tête de page.</p>
         <div class="links">
           <a class="btn primary" href="v1/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
           <a class="btn" href="v1/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
@@ -94,14 +81,9 @@
     <article class="card">
       <div class="thumb"><iframe src="v2/index.html" title="Aperçu version 2" loading="lazy" tabindex="-1"></iframe></div>
       <div class="body">
-        <span class="chosen">Version choisie par la cliente</span>
         <span class="tag">Version 2</span>
-        <h2>Accueil avec chiffres clés</h2>
-        <p>Même base, avec les chiffres à la place de la phrase, des animations, la visite du studio et « Bring the studio home ».</p>
-        <ul>
-          <li>Logo officiel Glowbar (nav, pied de page, boutique)</li>
-          <li>Photo du hero détourée, sans fond blanc</li>
-        </ul>
+        <h2>« An atelier for your face »</h2>
+        <p>Direction chic et épurée, palette brun et rose, phrase d’accroche en tête de page.</p>
         <div class="links">
           <a class="btn primary" href="v2/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
           <a class="btn" href="v2/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
@@ -113,6 +95,24 @@
       <div class="thumb"><iframe src="v3/index.html" title="Aperçu version 3" loading="lazy" tabindex="-1"></iframe></div>
       <div class="body">
         <span class="tag">Version 3</span>
+        <h2>Le rituel en mouvement</h2>
+        <p>Chiffres clés, visite du studio et « Bring the studio home », avec des sphères qui flottent et des apparitions au défilement.</p>
+        <ul>
+          <li>Logo officiel Glowbar (nav, pied de page, boutique)</li>
+          <li>Photo du hero détourée, sans fond blanc</li>
+          <li>Mouvement dynamique sur ordinateur et sur mobile</li>
+        </ul>
+        <div class="links">
+          <a class="btn primary" href="v3/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
+          <a class="btn" href="v3/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb"><iframe src="v4/index.html" title="Aperçu version 4" loading="lazy" tabindex="-1"></iframe></div>
+      <div class="body">
+        <span class="tag">Version 4</span>
         <h2>Blanc, épuré, boutons roses</h2>
         <p>Fond blanc, boutons roses, rappels de brun. Photo du hero en haute qualité (original 8000 px).</p>
         <ul>
@@ -121,8 +121,8 @@
           <li>Slider avant-gardiste : cadre qui change de forme, glisser pour naviguer</li>
         </ul>
         <div class="links">
-          <a class="btn primary" href="v3/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
-          <a class="btn" href="v3/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
+          <a class="btn primary" href="v4/index.html" target="_blank" rel="noopener">Ouvrir l’accueil</a>
+          <a class="btn" href="v4/shop.html" target="_blank" rel="noopener">Ouvrir la boutique</a>
         </div>
       </div>
     </article>

@@ -1,0 +1,73 @@
+/* Glowbar V2 — couche de mouvement (ordinateur et mobile). Tout est désactivé si l'utilisateur réduit les animations. */
+
+html.m-on{ overflow-x:clip; }
+html.m-on body{ overflow-x:clip; }
+
+/* barre de progression rose */
+.m-progress{ position:fixed; left:0; top:0; height:3px; width:100%; z-index:120; background:linear-gradient(90deg,var(--pink),var(--pink-deep)); transform-origin:0 50%; transform:scaleX(0); pointer-events:none; }
+
+/* le header se range en descendant, revient en remontant */
+html.m-on header{ transition:transform .6s cubic-bezier(.16,.8,.3,1), box-shadow .4s; }
+html.m-on header.m-hide{ transform:translateY(-101%); }
+html.m-on header.m-scrolled{ box-shadow:0 12px 30px -22px rgba(74,33,28,.35); }
+
+/* apparitions au défilement */
+.m-rv{ opacity:0; transform:translateY(34px); transition:opacity 1s cubic-bezier(.16,.8,.3,1), transform 1.1s cubic-bezier(.16,.8,.3,1); transition-delay:var(--d,0s); }
+.m-rv.in{ opacity:1; transform:none; }
+.m-w{ display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.14em; margin-bottom:-.14em; }
+.m-wi{ display:inline-block; transform:translateY(115%); transition:transform 1.1s cubic-bezier(.16,.8,.3,1); transition-delay:calc(var(--i,0) * 55ms + var(--d,0s)); }
+.in > .m-w > .m-wi, .in .m-wi, .m-wi.in{ transform:none; }
+
+/* images : ouverture en volet, léger zoom arrière, parallaxe au défilement */
+.m-img{ clip-path:inset(0 0 100% 0); transition:clip-path 1.3s cubic-bezier(.16,.8,.3,1); }
+.m-img.in{ clip-path:inset(0 0 0 0); }
+.m-img img{ scale:1.14; translate:0 var(--py,0%); transition:scale 1.8s cubic-bezier(.16,.8,.3,1); will-change:translate; }
+.m-img:not(.in) img{ scale:1.38; }
+
+/* hero : la photo flotte, le halo respire, les sphères dérivent */
+.hero-media .frame{ position:relative; z-index:1; animation:m-float 7s ease-in-out infinite; }
+.hero-media .frame img{ transform:translate(calc(var(--mx,0) * 10px), calc(var(--my,0) * 6px)); transition:transform .4s ease-out; }
+.hero-media .frame::before{ animation:m-halo 6s ease-in-out infinite; }
+.hero-media .corner{ z-index:2; animation:m-float 8s ease-in-out infinite reverse; }
+@keyframes m-float{ 0%,100%{ translate:0 0; } 50%{ translate:0 -14px; } }
+@keyframes m-halo{ 0%,100%{ scale:1; opacity:.55; } 50%{ scale:1.07; opacity:.8; } }
+
+.m-sphere{ position:absolute; z-index:0; border-radius:50%; pointer-events:none; will-change:transform;
+  background:radial-gradient(circle at 32% 28%, #fff 0, var(--blush) 24%, var(--pink) 70%, var(--pink-deep) 130%); box-shadow:0 26px 50px -24px rgba(232,149,187,.8); }
+.m-sphere.s1{ width:clamp(54px,7vw,92px); aspect-ratio:1; left:-3%; top:8%; animation:m-drift 8s ease-in-out infinite; }
+.m-sphere.s2{ width:clamp(26px,3vw,40px); aspect-ratio:1; right:-2%; top:38%; z-index:2; animation:m-drift 6s ease-in-out infinite reverse; }
+.m-sphere.s3{ width:clamp(16px,2vw,24px); aspect-ratio:1; left:8%; bottom:12%; z-index:2; animation:m-drift 7s ease-in-out infinite; }
+.m-sphere.big{ width:clamp(120px,20vw,260px); aspect-ratio:1; right:-4%; top:-10%; opacity:.5; animation:m-drift 11s ease-in-out infinite; }
+.m-sphere.glow{ opacity:.9; box-shadow:0 0 70px 6px rgba(243,191,216,.35); }
+@keyframes m-drift{ 0%,100%{ translate:0 -10px; } 50%{ translate:8px 14px; } }
+.hero-stats, .cta-band, .hero{ overflow-x:clip; }
+.cta-band{ position:relative; overflow:hidden; }
+.cta-band > *:not(.m-sphere){ position:relative; z-index:1; }
+.hero-stats{ position:relative; }
+.hero-stats .container{ position:relative; z-index:1; }
+
+/* boutons et cartes */
+.hero .btn-primary{ animation:m-pulse 3.8s ease-out infinite; }
+@keyframes m-pulse{ 0%{ box-shadow:0 0 0 0 rgba(232,149,187,.55); } 70%,100%{ box-shadow:0 0 0 18px rgba(232,149,187,0); } }
+.btn{ transition:transform .5s cubic-bezier(.16,.8,.3,1), background .3s, color .3s; }
+.pillar, .eshop-card, .product-card{ transition:transform .7s cubic-bezier(.16,.8,.3,1), opacity 1s cubic-bezier(.16,.8,.3,1); }
+@media (hover:hover){
+  .pillar:hover, .eshop-card:hover, .product-card:hover{ transform:translateY(-8px); }
+  .pillar:hover .roman{ letter-spacing:.06em; }
+}
+.pillar .roman{ transition:letter-spacing .6s cubic-bezier(.16,.8,.3,1); }
+
+/* chiffres : trait qui se dessine */
+.stat-block{ position:relative; }
+.stat-block::after{ content:""; position:absolute; left:0; top:-1px; height:2px; width:0; background:var(--pink-deep); transition:width 1.4s cubic-bezier(.16,.8,.3,1) .3s; }
+.stat-block.in::after{ width:56px; }
+
+@media (max-width:900px){
+  .m-sphere.s1{ left:2%; top:2%; }
+  .m-sphere.s2{ right:2%; }
+  .m-sphere.big{ right:-14%; top:-4%; }
+}
+@media (prefers-reduced-motion:reduce){
+  .m-rv, .m-wi, .m-img, .m-img img{ opacity:1 !important; transform:none !important; clip-path:none !important; scale:1 !important; translate:none !important; }
+  .hero-media .frame, .hero-media .corner, .hero-media .frame::before, .m-sphere, .hero .btn-primary{ animation:none !important; }
+}
