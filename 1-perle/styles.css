@@ -155,7 +155,7 @@ body[data-theme="dark"] .brand .logo-light, .menu-open .brand .logo-light{ opaci
 .kick{ z-index:1; position:absolute; left:4.6vw; top:13.5%; font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.3vw,34px); color:var(--pink-deep); white-space:nowrap; }
 .hw{ position:absolute; display:block; font-family:var(--serif); font-size:clamp(130px,24.5vw,400px); line-height:.9; letter-spacing:-.05em; white-space:nowrap; padding:0 .04em .1em; overflow:hidden; }
 .hw.w1{ z-index:1; left:4vw; top:17%; transform:translate(calc(var(--mx,0) * -16px), calc(var(--my,0) * -8px)); }
-.hw.w2{ z-index:2; left:57%; top:31%; font-style:italic; color:var(--pink-deep); mix-blend-mode:multiply; font-size:calc(var(--H) * .27); line-height:.95;
+.hw.w2{ z-index:2; left:57%; top:35%; font-style:italic; color:var(--pink-deep); mix-blend-mode:multiply; font-size:calc(var(--H) * .27); line-height:.95;
   transform:translate(calc(-50% + var(--mx,0) * -28px), calc(var(--my,0) * 6px)); }
 .hw .ch{ display:inline-block; transform:translateY(112%); transition:transform 1.3s var(--ease); transition-delay:calc(var(--i,0) * 70ms + .15s); }
 .ready .hw .ch{ transform:none; }
