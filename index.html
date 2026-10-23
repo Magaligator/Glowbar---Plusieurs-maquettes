@@ -48,6 +48,17 @@
     .card.featured .body{padding:34px 36px}
   }
   footer{text-align:center;color:var(--taupe);font-size:13px;padding:0 0 40px}
+  .ws-mark{position:fixed;right:10px;bottom:8px;z-index:140;display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 6px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);box-shadow:0 0 0 1px rgba(40,30,28,.08),0 6px 18px -10px rgba(0,0,0,.5);color:#2b2321;font:500 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.03em;text-decoration:none;opacity:.9;transition:opacity .3s,transform .4s}
+  .ws-mark:hover,.ws-mark:focus-visible{opacity:1;transform:translateY(-2px)}
+  .ws-mark img{width:18px;height:18px;display:block}.ws-mark b{font-weight:400;opacity:.7}
+  @media(max-width:560px){.ws-mark b{display:none}}
+  .credit{max-width:1120px;margin:0 auto 0;padding:34px 16px 70px;border-top:1px solid var(--mauve);display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:left;color:var(--taupe)}
+  .credit img{width:46px;height:46px;display:block}
+  .credit-txt{display:grid;gap:3px;font-size:13px;line-height:1.5}
+  .credit-txt strong{font-family:Inter,sans-serif;font-weight:600;font-size:15px;color:var(--ink);letter-spacing:.01em}
+  .credit a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s,color .3s}
+  .credit a:hover,.credit a:focus-visible{color:var(--pink);border-color:var(--pink)}
+  .credit-sep{opacity:.4;margin:0 6px}
 </style>
 </head>
 <body>
@@ -128,7 +139,12 @@
     </article>
   </div>
 </main>
-<footer>Glowbar · Genève</footer>
+<footer class="credit">
+  <a href="https://www.websituation.ch" target="_blank" rel="noopener" aria-label="Websituation"><img src="websituation-cube.png" alt="Logo Websituation" width="46" height="46"></a>
+  <div class="credit-txt"><strong>Maquettes réalisées par Websituation</strong>
+    <span><a href="https://www.websituation.ch" target="_blank" rel="noopener">www.websituation.ch</a><span class="credit-sep">·</span><a href="mailto:contact@websituation.ch">contact@websituation.ch</a></span>
+    <span>© 2026 Websituation — tous droits réservés</span></div>
+</footer>
 
 <script>
   // scale each 1440px-wide preview to fit its card
@@ -143,5 +159,6 @@
   }
   window.addEventListener('resize', fit); window.addEventListener('load', fit); fit();
 </script>
+<a class="ws-mark" href="https://www.websituation.ch" target="_blank" rel="noopener" aria-label="Made by Websituation, www.websituation.ch"><img src="websituation-cube.png" alt="" width="18" height="18"><span><b>Made by </b>© www.websituation.ch</span></a>
 </body>
 </html>
