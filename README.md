@@ -6,7 +6,7 @@ Une page unique (`index.html`) donne accès aux quatre versions du site, chacune
 |---|---|---|
 | 1 | `1-perle/` | « Perle » — récit au scroll autour d'une perle 3D (WebGL), menu plein écran, points cliquables sur les produits |
 | 2 | `2-atelier/` | « An atelier for your face » — direction chic, palette brun et rose |
-| 3 | `3-rituel/` | « Le rituel en mouvement » — chiffres clés, visite du studio, sphères flottantes et apparitions au défilement |
+| 3 | `3-rituel/` | Le rituel en mouvement — chiffres clés, visite du studio, sphères flottantes et apparitions au défilement |
 | 4 | `4-blanc/` | Blanc épuré, boutons roses, rappels de brun, slider avant-gardiste, défilement fluide |
 
 Chaque dossier est un site statique autonome : HTML, CSS et JavaScript, sans étape de build.
