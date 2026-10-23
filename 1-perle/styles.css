@@ -50,6 +50,8 @@ main{ overflow-x:clip; }
 body{ overflow-x:clip; }
 .anchor{ position:absolute; width:0; height:0; pointer-events:none; }
 .a-hero{ left:81%; top:50%; }
+/* final section : the pearl only rises under the content, so the text stays readable */
+.a-final{ left:50%; top:calc(100% + 22vmin); }
 .no-gl .anchor::after{ content:""; position:absolute; width:calc(var(--r,12) * 2vmin); aspect-ratio:1; left:calc(var(--r,12) * -1vmin); top:calc(var(--r,12) * -1vmin);
   border-radius:50%; background:radial-gradient(circle at 32% 28%,#fff,var(--pink-soft) 25%,var(--pink) 70%,var(--pink-deep) 130%); opacity:.8; }
 
@@ -261,9 +263,10 @@ body[data-theme="dark"] .brand .logo-light, .menu-open .brand .logo-light{ opaci
 .quote cite b{ color:var(--fg); font-weight:500; }
 
 /* ---------- final (dark) ---------- */
-.final{ position:relative; min-height:100svh; padding:clamp(100px,15vh,170px) var(--edge) clamp(60px,10vh,110px); display:flex; flex-direction:column; align-items:center; text-align:center; justify-content:flex-start; overflow:hidden; }
+.final{ position:relative; min-height:100svh; padding:clamp(100px,15vh,170px) var(--edge) calc(14vmin + 76px); display:flex; flex-direction:column; align-items:center; text-align:center; justify-content:flex-start; overflow:hidden; }
 .final h2{ font-size:clamp(60px,11.5vw,200px); line-height:.88; max-width:9ch; margin-bottom:34px; }
-.final p{ color:var(--muted); max-width:34ch; margin:0 auto 34px; }
+.final p{ color:rgba(247,236,230,.88); max-width:34ch; margin:0 auto 34px; }
+.final > .mono{ color:rgba(247,236,230,.78) !important; }
 .final .cta{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 .final-foot{ position:absolute; left:var(--edge); right:var(--edge); bottom:clamp(20px,4vh,40px); display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); }
 
@@ -330,6 +333,8 @@ footer{ padding:clamp(50px,8vh,90px) var(--edge) 28px; border-top:1px solid var(
   .shop-head{ flex-direction:column; align-items:flex-start; }
   .foot-top{ grid-template-columns:1fr 1fr; }
   .final h2{ font-size:clamp(64px,22vw,150px); }
+  .final{ padding-bottom:calc(20vmin + 76px); }
+  .a-final{ top:calc(100% + 20vmin); }
   .final-foot{ position:static; margin-top:60px; justify-content:center; }
   .sound span{ display:none; }
   .menu a{ font-size:clamp(26px,7.4vw,40px); }
