@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Glowbar — The Original Home of Face Pilates | Geneva</title>
+<meta name="description" content="Glowbar — the original home of face pilates in Geneva. A gentle, precise ritual of facial movement, and a wellness bar to nourish the glow.">
+<meta name="theme-color" content="#F7F1EA">
+<link rel="icon" href="assets/logos/monogram-taupe.png">
+<link rel="preload" as="image" href="assets/hero-model.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+  try{ if(sessionStorage.getItem('glowbar-v4-seen')) document.documentElement.classList.add('seen'); }catch(e){}
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+
+<div class="loader" aria-hidden="true">
+  <div class="lp"></div>
+  <div class="loader-word"><span>Breathe in</span><span>Lift</span><span>Glow</span></div>
+  <span class="loader-count mono">00</span>
+</div>
+<div class="cursor" aria-hidden="true"></div>
+<canvas id="pearl" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a href="index.html" class="brand" aria-label="Glowbar — home">
+    <img class="logo-light" src="assets/logos/wordmark-taupe.png" alt="Glowbar" width="1400" height="439">
+    <img class="logo-dark" src="assets/logos/wordmark-pink.png" alt="" width="1400" height="439">
+  </a>
+  <div class="nav-right">
+    <button class="sound mono" aria-pressed="false" aria-label="Toggle sound"><i></i><span>Sound off</span></button>
+    <a href="#book" class="btn btn-sm" data-magnetic>Opening soon</a>
+    <button class="menu-btn mono" aria-expanded="false" aria-controls="menu"><span>Menu</span><i></i></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <ol>
+    <li><a href="#ritual"><small>01</small>The ritual</a></li>
+    <li><a href="#studio"><small>02</small>The studio</a></li>
+    <li><a href="shop.html"><small>03</small>The shop</a></li>
+    <li><a href="#book"><small>04</small>Opening soon</a></li>
+  </ol>
+  <div class="menu-foot mono"><span>Geneva, Switzerland</span><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></div>
+</nav>
+
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" data-sec data-theme="light">
+    <i class="anchor a-hero" data-pearl data-r="17" data-rm="26" data-a="#F5C4DC" data-b="#E48FB9"></i>
+    <h1>
+      <span class="kick">The original home of</span>
+      <span class="hw w1" data-chars>Face</span>
+      <span class="sr-only">Pilates</span>
+    </h1>
+    <div class="hero-stage">
+      <img class="m-base" src="assets/hero-model.webp" alt="Glowbar client holding pink sculpting weights" width="1911" height="2400" fetchpriority="high" decoding="async" draggable="false">
+      <span class="hw w2" data-chars aria-hidden="true">Pilates</span>
+      <img class="m-head" src="assets/hero-head.webp" alt="" aria-hidden="true" width="1911" height="2400" decoding="async" draggable="false">
+    </div>
+    <span class="hint mono"><span>Hold the pearl</span></span>
+    <div class="hero-foot">
+      <div>
+        <span class="mono">Geneva</span>
+        <p>A gentle, precise ritual of facial movement — and a bar to nourish the glow.</p>
+      </div>
+      <div class="hero-cta">
+        <a href="#book" class="btn" data-magnetic>Join the opening list</a>
+        <a href="#ritual" class="scroll-ring" aria-label="Scroll to discover">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><text><textPath href="#circ" textLength="246" lengthAdjust="spacing">Scroll · Discover · Scroll · </textPath></text></svg>
+          <b aria-hidden="true">↓</b>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- I -->
+  <section class="alcove" id="ritual" data-sec data-theme="light">
+    <span class="roman" data-drift aria-hidden="true">I</span>
+    <div class="copy">
+      <span class="idx mono rv">01 / 04</span>
+      <h2 data-split>Face <em>pilates.</em></h2>
+      <p class="rv" style="--d:.2s">Expert-guided movement for the forty muscles no cream can reach.</p>
+      <a href="#book" class="link rv" style="--d:.3s">Opening soon <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="media">
+      <i class="anchor" data-pearl data-r="11" data-a="#F7CADB" data-b="#E58BA9" style="left:2%;top:94%"></i>
+      <div class="frame f-arch px mask"><img src="assets/treatment-ball.jpg" alt="Facial sculpting tool applied to the cheek" style="object-position:62% 50%" loading="lazy" decoding="async"></div>
+    </div>
+  </section>
+
+  <!-- II -->
+  <section class="alcove flip" data-sec data-theme="blush">
+    <span class="roman" data-drift aria-hidden="true">II</span>
+    <div class="copy">
+      <span class="idx mono rv">02 / 04</span>
+      <h2 data-split>The <em>tools.</em></h2>
+      <p class="rv" style="--d:.2s">Mirror steel, a sculpting ball and a soft headband — the ritual, at home.</p>
+      <a href="shop.html" class="link rv" style="--d:.3s">Shop the tools <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="media">
+      <i class="anchor" data-pearl data-r="9" data-a="#F8DFB8" data-b="#D9A55F" style="left:97%;top:16%"></i>
+      <div class="frame f-prod mask"><img src="assets/tools-flatlay.jpg" alt="Glowbar headband, mirror gua sha and sculpting ball" loading="lazy" decoding="async"></div>
+      <button class="hs" style="left:35%;top:62%" aria-expanded="false" aria-label="Signature headband"><span class="hs-card"><b>Signature Headband</b><span>CHF 28</span><a href="shop.html">View in shop</a></span></button>
+      <button class="hs" style="left:51%;top:77%" aria-expanded="false" aria-label="Mirror gua sha"><span class="hs-card"><b>Mirror Gua Sha</b><span>CHF 64</span><a href="shop.html">View in shop</a></span></button>
+      <button class="hs left" style="left:80%;top:72%" aria-expanded="false" aria-label="Sculpting ball"><span class="hs-card"><b>The Sculpting Ball</b><span>CHF 58</span><a href="shop.html">View in shop</a></span></button>
+      <span class="note mono">Tap the dots</span>
+    </div>
+  </section>
+
+  <!-- III -->
+  <section class="alcove" data-sec data-theme="light">
+    <span class="roman" data-drift aria-hidden="true">III</span>
+    <div class="copy">
+      <span class="idx mono rv">03 / 04</span>
+      <h2 data-split>The wellness <em>bar.</em></h2>
+      <p class="rv" style="--d:.2s">Glow-optimised blends, poured to order after every session.</p>
+      <a href="shop.html" class="link rv" style="--d:.3s">See the blends <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="media">
+      <i class="anchor" data-pearl data-r="10" data-a="#FCCDBD" data-b="#EE8C7C" style="left:4%;top:30%"></i>
+      <div class="frame f-tall px mask"><img src="assets/smoothie-pour.jpg" alt="A Glowbar smoothie being poured" loading="lazy" decoding="async"></div>
+    </div>
+  </section>
+
+  <!-- IV -->
+  <section class="alcove flip" id="studio" data-sec data-theme="blush">
+    <span class="roman" data-drift aria-hidden="true">IV</span>
+    <div class="copy">
+      <span class="idx mono rv">04 / 04</span>
+      <h2 data-split>A pause, <em>just for you.</em></h2>
+      <p class="rv" style="--d:.2s">Soft light, heated chairs, a quiet room in the heart of Geneva.</p>
+      <a href="#book" class="link rv" style="--d:.3s">Step inside <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="media">
+      <i class="anchor" data-pearl data-r="12" data-a="#EDC9EA" data-b="#BE8CCB" style="left:96%;top:88%"></i>
+      <div class="frame f-wide px mask"><img src="assets/studio-interior.jpg" alt="Glowbar studio interior" style="object-position:58% 50%" loading="lazy" decoding="async"></div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof" data-sec data-theme="dark">
+    <i class="anchor" data-pearl data-r="36" data-rm="30" data-a="#F3BCD6" data-b="#B14E7F" style="left:82%;top:58%"></i>
+    <span class="mono rv" style="margin-bottom:26px;color:var(--muted)">Why the face deserves a workout</span>
+    <h2 data-split>Beauty has evolved everywhere except <em>the face.</em></h2>
+    <div class="stats">
+      <div class="stat rv"><b data-count="90" data-suffix="%">90%</b><p>of beauty products only treat the surface layer of the skin.</p></div>
+      <div class="stat rv" style="--d:.12s"><b data-count="40" data-suffix="+">40+</b><p>facial muscles left untrained by any dedicated method — until now.</p></div>
+      <div class="stat rv" style="--d:.24s"><b data-count="80" data-suffix="%">80%</b><p>of visible aging is driven by tension and circulation.</p></div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="shop" data-sec data-theme="light">
+    <i class="anchor" data-pearl data-r="8" data-a="#F7CADB" data-b="#E58BA9" style="left:94%;top:8%"></i>
+    <div class="shop-head">
+      <h2 data-split>Bring the atelier <em>home.</em></h2>
+      <a href="shop.html" class="btn btn-ghost" data-magnetic>View the shop</a>
+    </div>
+    <div class="rail">
+      <a href="shop.html" class="p rv">
+        <div class="p-media"><span class="p-tag">Best-seller</span><img src="assets/product-collagen-cream.jpg" alt="Glowbar Collagen Cream" loading="lazy" width="402" height="476"></div>
+        <div class="p-body"><div><span class="cat mono">Skincare</span><h3>Collagen Cream</h3><span class="price">CHF 54</span></div><span class="add" aria-hidden="true">+</span></div>
+      </a>
+      <a href="shop.html" class="p rv" style="--d:.12s">
+        <div class="p-media"><img src="assets/product-tools-set.jpg" alt="Mirror gua sha engraved Glowbar" loading="lazy" width="1600" height="1600"></div>
+        <div class="p-body"><div><span class="cat mono">Tools</span><h3>Mirror Gua Sha</h3><span class="price">CHF 64</span></div><span class="add" aria-hidden="true">+</span></div>
+      </a>
+      <a href="shop.html" class="p rv" style="--d:.24s">
+        <div class="p-media"><img src="assets/product-smoothie-lineup.jpg" alt="Glowbar glow smoothie range" loading="lazy" width="1800" height="1005" style="object-position:38% 50%"></div>
+        <div class="p-body"><div><span class="cat mono">Smoothies</span><h3>Glow Berry</h3><span class="price">CHF 12</span></div><span class="add" aria-hidden="true">+</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE (moves with the scroll) -->
+  <div class="marquee" data-sec data-theme="light" aria-hidden="true">
+    <div class="marquee-track" data-marquee>
+      <span>Face pilates <img src="assets/logos/monogram-taupe.png" alt=""> Wellness bar <img src="assets/logos/monogram-taupe.png" alt=""> Geneva <img src="assets/logos/monogram-taupe.png" alt=""></span>
+      <span>Face pilates <img src="assets/logos/monogram-taupe.png" alt=""> Wellness bar <img src="assets/logos/monogram-taupe.png" alt=""> Geneva <img src="assets/logos/monogram-taupe.png" alt=""></span>
+      <span>Face pilates <img src="assets/logos/monogram-taupe.png" alt=""> Wellness bar <img src="assets/logos/monogram-taupe.png" alt=""> Geneva <img src="assets/logos/monogram-taupe.png" alt=""></span>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <section class="quote" data-sec data-theme="light">
+    <img class="rv" src="assets/logos/monogram-taupe.png" alt="" width="900" height="542">
+    <blockquote data-split>I created the wellness destination I always wished existed.</blockquote>
+    <cite class="mono rv" style="--d:.3s"><b>Sabrina Dusi</b> — Founder, Glowbar</cite>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" id="book" data-sec data-theme="dark">
+    <i class="anchor" data-pearl data-r="46" data-rm="52" data-a="#F3BCD6" data-b="#B14E7F" style="left:50%;top:112%"></i>
+    <span class="mono rv" style="margin-bottom:30px;color:var(--muted)">Coming soon · Geneva</span>
+    <h2 data-split>Our boudoir <em>opens soon.</em></h2>
+    <p class="rv" style="--d:.2s">Booking opens shortly. Leave your email and be the first to reserve your session.</p>
+    <div class="cta rv" style="--d:.3s">
+      <a href="#newsletter" class="btn" data-magnetic>Join the opening list</a>
+      <a href="mailto:hello@glowbar.ch" class="btn btn-ghost" data-magnetic>hello@glowbar.ch</a>
+    </div>
+  </section>
+
+</main>
+
+<footer data-sec data-theme="dark" data-probe=".8">
+  <i class="anchor" data-pearl data-r="0" data-a="#F3BCD6" data-b="#B14E7F" style="left:50%;top:0"></i>
+  <div class="foot-top">
+    <div>
+      <img src="assets/logos/wordmark-pink.png" alt="Glowbar" width="1400" height="439" loading="lazy">
+      <p>An atelier for face pilates. Geneva, Switzerland.</p>
+      <form class="nl" id="newsletter" data-form>
+        <label class="sr-only" for="nl-email">Email address</label>
+        <input type="email" id="nl-email" placeholder="Your email" autocomplete="email" required>
+        <button type="submit" class="btn btn-sm" data-magnetic>Subscribe</button>
+      </form>
+      <p class="form-note" hidden>You're on the list — welcome to the glow.</p>
+    </div>
+    <div class="foot-col"><h4>Studio</h4><ul><li><a href="#ritual">The ritual</a></li><li><a href="#studio">Visit us</a></li><li><a href="#book">Opening soon</a></li></ul></div>
+    <div class="foot-col"><h4>Shop</h4><ul><li><a href="shop.html">Tools</a></li><li><a href="shop.html">Apparel</a></li><li><a href="shop.html">Wellness bar</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4><ul><li><a href="mailto:hello@glowbar.ch">hello@glowbar.ch</a></li><li><a href="#book">Geneva, Switzerland</a></li><li><a href="#">@glowbar</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 Glowbar. All rights reserved.</span><span>Instagram · TikTok</span></div>
+</footer>
+
+<script src="assets/lenis.min.js"></script>
+<script src="pearl.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
